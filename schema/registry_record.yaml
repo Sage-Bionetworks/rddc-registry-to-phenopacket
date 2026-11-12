@@ -1,0 +1,211 @@
+id: https://w3id.org/sage/rddc/registry-to-phenopacket/registry_record
+name: registry_record
+title: Registry record
+description: >-
+  Intermediate representation between a registry export and a GA4GH Phenopacket v2.
+  Every registry maps into this schema with a LinkML-Map specification (mappings/);
+  the crosswalk and phenopacket build steps read only this schema. It keeps the
+  survey-to-answer nesting of the source so nothing is flattened before terms are
+  resolved, and it carries source codes and texts verbatim: resolution to HPO, MONDO,
+  HGNC and RxNorm happens downstream and is reported, not assumed.
+  Prototype schema; lives in this repository, not in rddc-model.
+license: https://www.apache.org/licenses/LICENSE-2.0
+version: 0.1.0
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rr: https://w3id.org/sage/rddc/registry-to-phenopacket/registry_record/
+  HP: http://purl.obolibrary.org/obo/HP_
+  MONDO: http://purl.obolibrary.org/obo/MONDO_
+  Orphanet: http://www.orpha.net/ORDO/Orphanet_
+  OMIM: https://omim.org/entry/
+  schema: http://schema.org/
+default_prefix: rr
+default_range: string
+imports:
+  - linkml:types
+
+classes:
+  RegistryExport:
+    tree_root: true
+    description: One export from one registry, as a container of records. Tabular
+      registries produce records directly, one per row, without this container.
+    attributes:
+      registry:
+        description: Registry short name, matching the samplesheet.
+      exported_on:
+        description: Export date as written by the registry.
+      records:
+        range: RegistryRecord
+        multivalued: true
+        inlined_as_list: true
+
+  RegistryRecord:
+    description: One participant's data from one registry, at the time of export.
+    attributes:
+      id:
+        identifier: true
+        description: Registry participant identifier, pseudonymous.
+      registry:
+        description: Registry short name. Set by the mapping specification.
+      respondent:
+        range: RespondentEnum
+        description: Who answered. Drives patient-versus-relative attribution.
+      sex:
+        range: SexEnum
+      birth_year:
+        range: integer
+      age_at_survey:
+        range: integer
+        description: Age in years at the most recent survey, when the export gives
+          ages rather than dates.
+      country:
+      diseases:
+        range: DiseaseAssertion
+        multivalued: true
+        inlined_as_list: true
+      surveys:
+        range: SurveyResponse
+        multivalued: true
+        inlined_as_list: true
+      medications:
+        range: MedicationReport
+        multivalued: true
+        inlined_as_list: true
+      family_history:
+        range: FamilyHistory
+        inlined: true
+      documents:
+        range: DocumentRef
+        multivalued: true
+        inlined_as_list: true
+
+  DiseaseAssertion:
+    description: A diagnosis as reported in the registry. Status says whether the
+      registry marks it as genetically or clinically confirmed.
+    attributes:
+      label:
+      source_code:
+        description: Code as written, for example Orphanet:2332 or OMIM:148050.
+          Resolved to MONDO by the crosswalk.
+      diagnosis_year:
+        range: integer
+      genetic_confirmation:
+        range: PresenceEnum
+      gene_symbol:
+      variant_text:
+        description: Variant as the participant or report wrote it. Not parsed.
+      onset_text:
+        description: Age band or phrase for first symptoms, verbatim.
+      status:
+        range: DiagnosisStatusEnum
+
+  SurveyResponse:
+    description: One completed instrument or form, with its version.
+    attributes:
+      instrument:
+      version:
+      language:
+      completed:
+        description: Completion date as written.
+      answers:
+        range: Answer
+        multivalued: true
+        inlined_as_list: true
+      scores:
+        range: Score
+        multivalued: true
+        inlined_as_list: true
+
+  Answer:
+    description: One answered item. Checklist items carry a presence value and,
+      when the registry codes them, a source code. Free-text items carry free_text.
+    attributes:
+      question_id:
+      label:
+      value:
+        range: PresenceEnum
+      free_text:
+      source_code:
+        description: Ontology code the registry attached to the item, verbatim.
+      onset_text:
+
+  Score:
+    attributes:
+      name:
+      value:
+        range: float
+
+  MedicationReport:
+    attributes:
+      name_text:
+        description: Medication as typed by the respondent.
+      start_text:
+      ongoing:
+        range: boolean
+      response_text:
+
+  FamilyHistory:
+    attributes:
+      affected_relatives:
+        range: PresenceEnum
+      notes:
+      relatives:
+        range: RelativeReport
+        multivalued: true
+        inlined_as_list: true
+
+  RelativeReport:
+    attributes:
+      relation:
+      diagnosis_label:
+      source_code:
+
+  DocumentRef:
+    attributes:
+      document_type:
+      file_name:
+      uploaded_on:
+
+enums:
+  SexEnum:
+    description: Phenopacket Sex values. Aliases cover the codings seen in exports.
+    permissible_values:
+      FEMALE:
+        aliases: [female, Female, F, f]
+      MALE:
+        aliases: [male, Male, M, m]
+      OTHER_SEX:
+        aliases: [other, Other, intersex]
+      UNKNOWN_SEX:
+        aliases: [unknown, Unknown, prefer not to say]
+  RespondentEnum:
+    description: Who completed the survey. Drives patient-versus-relative attribution downstream.
+    permissible_values:
+      participant:
+        description: >-
+          The participant answered for themselves. Not keyed "self" because that
+          key breaks the LinkML YAML loader.
+        aliases: [self, Self, patient, Patient]
+      parent:
+        aliases: [Parent, mother, father, Mother, Father]
+      caregiver:
+        aliases: [Other caregiver, caregiver, Caregiver, guardian]
+      clinician:
+        aliases: [Clinician, physician]
+      other:
+        aliases: [Other]
+  PresenceEnum:
+    description: Three-valued answer to a checklist item. Aliases are quoted because
+      YAML reads bare yes and no as booleans.
+    permissible_values:
+      present:
+        aliases: ["yes", "Yes", "YES", "true", "checked"]
+      absent:
+        aliases: ["no", "No", "NO", "false", "unchecked"]
+      unknown:
+        aliases: ["unsure", "Unsure", "unknown", "Unknown", "don't know", "Don't know"]
+  DiagnosisStatusEnum:
+    description: Whether the registry marks the diagnosis as confirmed (genetically or clinically) or only reported.
+    permissible_values:
+      reported:
+      confirmed:

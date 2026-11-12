@@ -1,0 +1,53 @@
+field,form,form_version,type,label,choices,rddc_target
+record_id,enrol,1.0,text,Record ID,,record.id
+resp_rel,enrol,1.0,radio,Who is completing this survey?,"1, Self | 2, Parent | 3, Other caregiver",record.respondent
+sex,enrol,1.0,radio,Sex at birth,"1, Male | 2, Female | 3, Other",record.sex
+birth_yr,enrol,1.0,integer,Year of birth,,record.birth_year
+country,enrol,1.0,text,Country of residence,,record.country
+dx_label,diagnosis,1.0,text,Diagnosis,,disease.label
+dx_orpha,diagnosis,1.0,text,ORPHAcode,,disease.source_code
+dx_year,diagnosis,1.0,integer,Year of diagnosis,,disease.diagnosis_year
+dx_genetic,diagnosis,1.0,yesno,Genetically confirmed,"1, Yes | 0, No | 9, Unsure",disease.genetic_confirmation
+gene,diagnosis,1.0,text,Gene,,disease.gene_symbol
+variant_text,diagnosis,1.0,text,Variant as written on the report,,disease.variant_text
+onset_band,diagnosis,1.0,dropdown,Age at first symptoms,"1, Before birth | 2, At birth | 3, Under 1 year | 4, 1-5 years | 5, 5-15 years | 6, Over 15 years",disease.onset_text
+neuro_seizures,neuro,1.4,yesno,Has had seizures,"1, Yes | 0, No | 9, Unsure",answer
+neuro_seizures_onset,neuro,1.4,dropdown,Age when seizures started,"1, Under 1 year | 2, 1-2 years | 3, 2-5 years | 4, Over 5 years",answer_onset:neuro_seizures
+neuro_hypotonia,neuro,1.4,yesno,Low muscle tone (floppy),"1, Yes | 0, No | 9, Unsure",answer
+neuro_dd,neuro,1.4,yesno,Developmental delay,"1, Yes | 0, No | 9, Unsure",answer
+neuro_speech,neuro,1.4,yesno,Delayed speech,"1, Yes | 0, No | 9, Unsure",answer
+neuro_microceph,neuro,1.4,yesno,Small head size,"1, Yes | 0, No | 9, Unsure",answer
+neuro_regression,neuro,1.4,yesno,Lost skills previously gained,"1, Yes | 0, No | 9, Unsure",answer
+neuro_unsteady,neuro,1.4,yesno,Unsteady walking,"1, Yes | 0, No | 9, Unsure",answer
+neuro_other,neuro,1.4,notes,Other neuro symptoms,,answer_text
+gi_reflux,gi,1.1,yesno,Reflux,"1, Yes | 0, No | 9, Unsure",answer
+gi_constipation,gi,1.1,yesno,Constipation,"1, Yes | 0, No | 9, Unsure",answer
+gi_feeding,gi,1.1,yesno,Feeding difficulties,"1, Yes | 0, No | 9, Unsure",answer
+gi_ftt,gi,1.1,yesno,Poor weight gain,"1, Yes | 0, No | 9, Unsure",answer
+gi_other,gi,1.1,notes,Other gi symptoms,,answer_text
+beh_sleep,beh,1.0,yesno,Sleep problems,"1, Yes | 0, No | 9, Unsure",answer
+beh_autism,beh,1.0,yesno,Autism diagnosis,"1, Yes | 0, No | 9, Unsure",answer
+beh_hyperactive,beh,1.0,yesno,Hyperactivity,"1, Yes | 0, No | 9, Unsure",answer
+beh_anxiety,beh,1.0,yesno,Anxiety,"1, Yes | 0, No | 9, Unsure",answer
+beh_aggression,beh,1.0,yesno,Aggressive behaviour,"1, Yes | 0, No | 9, Unsure",answer
+beh_other,beh,1.0,notes,Other beh symptoms,,answer_text
+growth_short,growth,1.0,yesno,Short for age,"1, Yes | 0, No | 9, Unsure",answer
+growth_hearing,growth,1.0,yesno,Hearing loss,"1, Yes | 0, No | 9, Unsure",answer
+growth_scoliosis,growth,1.0,yesno,Curved spine (scoliosis),"1, Yes | 0, No | 9, Unsure",answer
+growth_other,growth,1.0,notes,Other growth symptoms,,answer_text
+med1_name,meds,1.0,text,Medication 1 name,,med[1].name_text
+med1_start,meds,1.0,text,Medication 1 start year,,med[1].start_text
+med1_ongoing,meds,1.0,yesno,Medication 1 still taking,"1, Yes | 0, No",med[1].ongoing
+med1_effect,meds,1.0,notes,Medication 1 effect,,med[1].response_text
+med2_name,meds,1.0,text,Medication 2 name,,med[2].name_text
+med2_start,meds,1.0,text,Medication 2 start year,,med[2].start_text
+med2_ongoing,meds,1.0,yesno,Medication 2 still taking,"1, Yes | 0, No",med[2].ongoing
+med2_effect,meds,1.0,notes,Medication 2 effect,,med[2].response_text
+med3_name,meds,1.0,text,Medication 3 name,,med[3].name_text
+med3_start,meds,1.0,text,Medication 3 start year,,med[3].start_text
+med3_ongoing,meds,1.0,yesno,Medication 3 still taking,"1, Yes | 0, No",med[3].ongoing
+med3_effect,meds,1.0,notes,Medication 3 effect,,med[3].response_text
+fh_affected,family,1.0,yesno,Any relatives with a similar condition,"1, Yes | 0, No | 9, Unsure",family.affected_relatives
+fh_notes,family,1.0,notes,Family history details,,family.notes
+pedsql_total,pedsql,4.0,decimal,PedsQL total score,,score:total
+report_file,uploads,1.0,file,Genetic report upload,,document:genetic_report

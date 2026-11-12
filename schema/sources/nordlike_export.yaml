@@ -1,0 +1,131 @@
+id: https://w3id.org/sage/rddc/registry-to-phenopacket/sources/nordlike_export
+name: nordlike_export
+title: NORD-like hierarchical JSON registry export
+description: >-
+  Inferred shape of a hierarchical JSON export from a survey-platform registry such
+  as NORD IAMRARE. Participant, then study enrollment, surveys over time, items, with
+  checklist items carrying the platform's HPO code. Not an official NORD schema;
+  replace with the real export schema when one is obtained. Lives in this
+  repository, not in rddc-model.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  nl: https://w3id.org/sage/rddc/registry-to-phenopacket/sources/nordlike_export/
+default_prefix: nl
+default_range: string
+imports:
+  - linkml:types
+
+classes:
+  Export:
+    tree_root: true
+    attributes:
+      registry:
+      export_date:
+      participants:
+        range: Participant
+        multivalued: true
+        inlined_as_list: true
+  Participant:
+    attributes:
+      participant_id:
+        identifier: true
+      study:
+        range: Study
+        inlined: true
+      respondent:
+      demographics:
+        range: Demographics
+        inlined: true
+      diagnosis:
+        range: Diagnosis
+        multivalued: true
+        inlined_as_list: true
+      surveys:
+        range: Survey
+        multivalued: true
+        inlined_as_list: true
+      medications:
+        range: Medication
+        multivalued: true
+        inlined_as_list: true
+      family_history:
+        range: FamilyHistoryBlock
+        inlined: true
+      uploads:
+        range: Upload
+        multivalued: true
+        inlined_as_list: true
+  Study:
+    attributes:
+      sponsor:
+      protocol_version:
+  Demographics:
+    attributes:
+      sex:
+      birth_year:
+        range: integer
+      country:
+      age_at_survey:
+        range: integer
+  Diagnosis:
+    attributes:
+      label:
+      orphacode:
+      omim:
+      year:
+        range: integer
+      genetic_confirmation:
+      gene:
+      variant_text:
+      onset:
+  Survey:
+    attributes:
+      instrument:
+      version:
+      language:
+      completed:
+      items:
+        range: Item
+        multivalued: true
+        inlined_as_list: true
+      scores:
+        range: ScoreEntry
+        multivalued: true
+        inlined_as_list: true
+  Item:
+    attributes:
+      id:
+      label:
+      value:
+      hpo:
+      onset:
+  ScoreEntry:
+    attributes:
+      name:
+      value:
+        range: float
+  Medication:
+    attributes:
+      name_text:
+      start:
+      ongoing:
+        range: boolean
+      response:
+  FamilyHistoryBlock:
+    attributes:
+      affected_relatives:
+      notes:
+      relatives:
+        range: Relative
+        multivalued: true
+        inlined_as_list: true
+  Relative:
+    attributes:
+      relation:
+      diagnosis:
+      orphacode:
+  Upload:
+    attributes:
+      type:
+      file:
+      uploaded:

@@ -1,0 +1,3 @@
+registry,format,data,source_schema,transform,source_type,truth
+nordlike,json,tests/data/nordlike/export.json,schema/sources/nordlike_export.yaml,mappings/nordlike_to_record.transform.yaml,Export,tests/data/truth.jsonl
+redcaplike,csv,tests/data/redcaplike/Row.csv,schema/sources/redcaplike_wide.yaml,mappings/redcaplike_to_record.transform.yaml,Row,tests/data/truth.jsonl

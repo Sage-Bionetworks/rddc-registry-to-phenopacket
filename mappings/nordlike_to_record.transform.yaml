@@ -1,0 +1,132 @@
+# LinkML-Map specification: NORD-like JSON export -> RegistryRecord.
+# Run: linkml-map map-data -T this -s schema/sources/nordlike_export.yaml \
+#        --target-schema schema/registry_record.yaml --source-type Export export.json
+# Hand-curated. The hierarchy maps class for class; nothing is flattened here.
+id: https://w3id.org/sage/rddc/registry-to-phenopacket/mappings/nordlike_to_record
+title: NORD-like JSON export to RegistryRecord
+version: 0.1.0
+prefixes:
+  semapv: https://w3id.org/semapv/vocab/
+mapping_method: semapv:ManualMappingCuration
+class_derivations:
+  RegistryExport:
+    populated_from: Export
+    slot_derivations:
+      registry:
+      exported_on:
+        populated_from: export_date
+      records:
+        populated_from: participants
+
+  RegistryRecord:
+    populated_from: Participant
+    slot_derivations:
+      id:
+        populated_from: participant_id
+      registry:
+        value: nordlike
+      respondent:
+      sex:
+        populated_from: demographics.sex
+      birth_year:
+        populated_from: demographics.birth_year
+      age_at_survey:
+        populated_from: demographics.age_at_survey
+      country:
+        populated_from: demographics.country
+      diseases:
+        populated_from: diagnosis
+      surveys:
+      medications:
+      family_history:
+      documents:
+        populated_from: uploads
+      # Not mapped, by design: study.sponsor and study.protocol_version describe the
+      # export, not the participant. They are recorded in the run's provenance.
+
+  DiseaseAssertion:
+    populated_from: Diagnosis
+    slot_derivations:
+      label:
+      source_code:
+        # The export carries ORPHAcode and OMIM side by side; prefer ORPHAcode.
+        expr: "coalesce({orphacode}, {omim})"
+      diagnosis_year:
+        populated_from: year
+      genetic_confirmation:
+      gene_symbol:
+        populated_from: gene
+      variant_text:
+      onset_text:
+        populated_from: onset
+      status:
+        expr: "case( ({genetic_confirmation} == 'yes', 'confirmed'), (True, 'reported') )"
+
+  SurveyResponse:
+    populated_from: Survey
+    slot_derivations:
+      instrument:
+      version:
+      language:
+      completed:
+      answers:
+        populated_from: items
+      scores:
+
+  Answer:
+    populated_from: Item
+    slot_derivations:
+      question_id:
+        populated_from: id
+      label:
+      # A coded item is a checklist answer; an uncoded one is free text.
+      value:
+        expr: "case( ({hpo} != None, {value}), (True, None) )"
+      free_text:
+        expr: "case( ({hpo} == None, {value}), (True, None) )"
+      source_code:
+        populated_from: hpo
+      onset_text:
+        populated_from: onset
+
+  Score:
+    populated_from: ScoreEntry
+    slot_derivations:
+      name:
+      value:
+
+  MedicationReport:
+    populated_from: Medication
+    slot_derivations:
+      name_text:
+      start_text:
+        populated_from: start
+      ongoing:
+      response_text:
+        populated_from: response
+
+  FamilyHistory:
+    populated_from: FamilyHistoryBlock
+    slot_derivations:
+      affected_relatives:
+      notes:
+      relatives:
+
+  RelativeReport:
+    populated_from: Relative
+    slot_derivations:
+      relation:
+      diagnosis_label:
+        populated_from: diagnosis
+      source_code:
+        populated_from: orphacode
+
+  DocumentRef:
+    populated_from: Upload
+    slot_derivations:
+      document_type:
+        populated_from: type
+      file_name:
+        populated_from: file
+      uploaded_on:
+        populated_from: uploaded

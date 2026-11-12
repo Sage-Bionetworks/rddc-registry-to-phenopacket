@@ -1,0 +1,3410 @@
+{
+ "registry": "nordlike",
+ "export_date": "2025-10-01",
+ "participants": [
+  {
+   "participant_id": "NL-0000",
+   "study": {
+    "sponsor": "Dravet syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "parent",
+   "demographics": {
+    "sex": "female",
+    "birth_year": 2019,
+    "country": "US",
+    "age_at_survey": 6
+   },
+   "diagnosis": [
+    {
+     "label": "Dravet syndrome",
+     "year": 2024,
+     "genetic_confirmation": "yes",
+     "onset": "over 15 years",
+     "gene": "SCN1A",
+     "variant_text": "SCN1A c.2239C>T (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-04-26",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "yes",
+       "hpo": "HP:0001250",
+       "onset": "under 1 year"
+      },
+      {
+       "id": "neuro_dd",
+       "label": "Developmental delay",
+       "value": "yes",
+       "hpo": "HP:0001263"
+      },
+      {
+       "id": "neuro_microceph",
+       "label": "Small head size",
+       "value": "unsure",
+       "hpo": "HP:0000252"
+      },
+      {
+       "id": "neuro_unsteady",
+       "label": "Unsteady walking",
+       "value": "no",
+       "hpo": "HP:0002317"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "drools a lot"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "very picky eater"
+      },
+      {
+       "id": "neuro_toewalk",
+       "label": "Walks on toes",
+       "value": "yes",
+       "hpo": "HP:0040083"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-02-08",
+     "items": [
+      {
+       "id": "beh_anxiety",
+       "label": "Anxiety",
+       "value": "unsure",
+       "hpo": "HP:0000739"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-03-05",
+     "items": [
+      {
+       "id": "growth_hearing",
+       "label": "Hearing loss",
+       "value": "no",
+       "hpo": "HP:0000365"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 87.1
+      }
+     ]
+    }
+   ],
+   "medications": [],
+   "family_history": {
+    "affected_relatives": "unsure",
+    "notes": ""
+   },
+   "uploads": []
+  },
+  {
+   "participant_id": "NL-0001",
+   "study": {
+    "sponsor": "Shwachman-Diamond syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "caregiver",
+   "demographics": {
+    "sex": "female",
+    "birth_year": 2009,
+    "country": "US",
+    "age_at_survey": 16
+   },
+   "diagnosis": [
+    {
+     "label": "Shwachman-Diamond syndrome",
+     "year": 2010,
+     "genetic_confirmation": "yes",
+     "onset": "5-15 years",
+     "orphacode": "ORPHA:811",
+     "gene": "SBDS",
+     "variant_text": "SBDS c.261C>T (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-12-23",
+     "items": [
+      {
+       "id": "neuro_hypotonia",
+       "label": "Low muscle tone (floppy)",
+       "value": "no",
+       "hpo": "HP:0001252"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "toe walking"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-11-28",
+     "items": [
+      {
+       "id": "gi_reflux",
+       "label": "Reflux",
+       "value": "unsure",
+       "hpo": "HP:0002020"
+      },
+      {
+       "id": "gi_feeding",
+       "label": "Feeding difficulties",
+       "value": "yes",
+       "hpo": "HP:0011968"
+      },
+      {
+       "id": "gi_ftt",
+       "label": "Poor weight gain",
+       "value": "yes",
+       "hpo": "HP:0001508"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-08-03",
+     "items": [
+      {
+       "id": "beh_sleep",
+       "label": "Sleep problems",
+       "value": "no",
+       "hpo": "HP:0002360"
+      },
+      {
+       "id": "beh_hyperactive",
+       "label": "Hyperactivity",
+       "value": "unsure",
+       "hpo": "HP:0000752"
+      },
+      {
+       "id": "beh_anxiety",
+       "label": "Anxiety",
+       "value": "no",
+       "hpo": "HP:0000739"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-09-25",
+     "items": [
+      {
+       "id": "growth_hearing",
+       "label": "Hearing loss",
+       "value": "no",
+       "hpo": "HP:0000365"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 62.3
+      }
+     ]
+    }
+   ],
+   "medications": [],
+   "family_history": {
+    "affected_relatives": "no",
+    "notes": ""
+   },
+   "uploads": []
+  },
+  {
+   "participant_id": "NL-0002",
+   "study": {
+    "sponsor": "Dravet syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "parent",
+   "demographics": {
+    "sex": "male",
+    "birth_year": 2022,
+    "country": "DE",
+    "age_at_survey": 3
+   },
+   "diagnosis": [
+    {
+     "label": "Dravet syndrome",
+     "year": 2024,
+     "genetic_confirmation": "no",
+     "onset": "at birth"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-03-08",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "yes",
+       "hpo": "HP:0001250",
+       "onset": "under 1 year"
+      },
+      {
+       "id": "neuro_hypotonia",
+       "label": "Low muscle tone (floppy)",
+       "value": "yes",
+       "hpo": "HP:0001252"
+      },
+      {
+       "id": "neuro_dd",
+       "label": "Developmental delay",
+       "value": "yes",
+       "hpo": "HP:0001263"
+      },
+      {
+       "id": "neuro_regression",
+       "label": "Lost skills previously gained",
+       "value": "yes",
+       "hpo": "HP:0002376"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "toe walking"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "very picky eater"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-10-02",
+     "items": [
+      {
+       "id": "beh_sleep",
+       "label": "Sleep problems",
+       "value": "no",
+       "hpo": "HP:0002360"
+      },
+      {
+       "id": "beh_aggression",
+       "label": "Aggressive behaviour",
+       "value": "no",
+       "hpo": "HP:0000718"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-11-23",
+     "items": [
+      {
+       "id": "growth_scoliosis",
+       "label": "Curved spine (scoliosis)",
+       "value": "no",
+       "hpo": "HP:0002650"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 67.7
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "melatonin 3mg",
+     "start": "2025",
+     "ongoing": true,
+     "response": "stopped due to behaviour"
+    },
+    {
+     "name_text": "fish oil",
+     "start": "2024",
+     "ongoing": true,
+     "response": "fewer seizures"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "no",
+    "notes": ""
+   },
+   "uploads": []
+  },
+  {
+   "participant_id": "NL-0003",
+   "study": {
+    "sponsor": "Charcot-Marie-Tooth disease type 1A Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "parent",
+   "demographics": {
+    "sex": "male",
+    "birth_year": 2018,
+    "country": "BR",
+    "age_at_survey": 7
+   },
+   "diagnosis": [
+    {
+     "label": "Charcot-Marie-Tooth disease type 1A",
+     "year": 2021,
+     "genetic_confirmation": "yes",
+     "onset": "under 1 year",
+     "orphacode": "ORPHA:101081",
+     "omim": "OMIM:118220",
+     "gene": "PMP22",
+     "variant_text": "PMP22 c.559C>T (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-05-05",
+     "items": [
+      {
+       "id": "neuro_hypotonia",
+       "label": "Low muscle tone (floppy)",
+       "value": "unsure",
+       "hpo": "HP:0001252"
+      },
+      {
+       "id": "neuro_unsteady",
+       "label": "Unsteady walking",
+       "value": "yes",
+       "hpo": "HP:0002317"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "hand flapping when excited"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-11-09",
+     "items": [
+      {
+       "id": "gi_constipation",
+       "label": "Constipation",
+       "value": "no",
+       "hpo": "HP:0002019"
+      },
+      {
+       "id": "gi_ftt",
+       "label": "Poor weight gain",
+       "value": "no",
+       "hpo": "HP:0001508"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-09-21",
+     "items": [
+      {
+       "id": "beh_sleep",
+       "label": "Sleep problems",
+       "value": "unsure",
+       "hpo": "HP:0002360"
+      },
+      {
+       "id": "beh_autism",
+       "label": "Autism diagnosis",
+       "value": "yes",
+       "hpo": "HP:0000717"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-07-23",
+     "items": [
+      {
+       "id": "growth_scoliosis",
+       "label": "Curved spine (scoliosis)",
+       "value": "yes",
+       "hpo": "HP:0002650"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 65.2
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "omeprazole",
+     "start": "2021",
+     "ongoing": true,
+     "response": "no change"
+    },
+    {
+     "name_text": "valproate",
+     "start": "2019",
+     "ongoing": true,
+     "response": "stopped due to behaviour"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "yes",
+    "notes": "mother has mild learning difficulties",
+    "relatives": [
+     {
+      "relation": "mother",
+      "diagnosis": "Charcot-Marie-Tooth disease type 1A",
+      "orphacode": "ORPHA:101081"
+     }
+    ]
+   },
+   "uploads": []
+  },
+  {
+   "participant_id": "NL-0004",
+   "study": {
+    "sponsor": "Shwachman-Diamond syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "parent",
+   "demographics": {
+    "sex": "female",
+    "birth_year": 2006,
+    "country": "AU",
+    "age_at_survey": 19
+   },
+   "diagnosis": [
+    {
+     "label": "Shwachman-Diamond syndrome",
+     "year": 2022,
+     "genetic_confirmation": "yes",
+     "onset": "5-15 years",
+     "orphacode": "ORPHA:811",
+     "gene": "SBDS",
+     "variant_text": "SBDS c.2561C>T (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-02-10",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "yes",
+       "hpo": "HP:0001250",
+       "onset": "2-5 years"
+      },
+      {
+       "id": "neuro_regression",
+       "label": "Lost skills previously gained",
+       "value": "no",
+       "hpo": "HP:0002376"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "frequent ear infections"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "very picky eater"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-09-19",
+     "items": [
+      {
+       "id": "gi_feeding",
+       "label": "Feeding difficulties",
+       "value": "yes",
+       "hpo": "HP:0011968"
+      },
+      {
+       "id": "gi_ftt",
+       "label": "Poor weight gain",
+       "value": "yes",
+       "hpo": "HP:0001508"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-04-13",
+     "items": [
+      {
+       "id": "beh_autism",
+       "label": "Autism diagnosis",
+       "value": "no",
+       "hpo": "HP:0000717"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-05-08",
+     "items": [
+      {
+       "id": "growth_short",
+       "label": "Short for age",
+       "value": "yes",
+       "hpo": "HP:0004322"
+      },
+      {
+       "id": "growth_hearing",
+       "label": "Hearing loss",
+       "value": "no",
+       "hpo": "HP:0000365"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 56.6
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "Keppra 250 twice a day",
+     "start": "2020",
+     "ongoing": false,
+     "response": "fewer seizures"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "unsure",
+    "notes": ""
+   },
+   "uploads": [
+    {
+     "type": "genetic_report",
+     "file": "NL-0004_genereport.pdf",
+     "uploaded": "2023-11-10"
+    }
+   ]
+  },
+  {
+   "participant_id": "NL-0005",
+   "study": {
+    "sponsor": "Mowat-Wilson syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "parent",
+   "demographics": {
+    "sex": "female",
+    "birth_year": 2009,
+    "country": "US",
+    "age_at_survey": 16
+   },
+   "diagnosis": [
+    {
+     "label": "Mowat-Wilson syndrome",
+     "year": 2021,
+     "genetic_confirmation": "no",
+     "onset": "at birth",
+     "orphacode": "ORPHA:2152",
+     "omim": "OMIM:235730"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-01-18",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "yes",
+       "hpo": "HP:0001250",
+       "onset": "under 1 year"
+      },
+      {
+       "id": "neuro_dd",
+       "label": "Developmental delay",
+       "value": "yes",
+       "hpo": "HP:0001263"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-05-15",
+     "items": [
+      {
+       "id": "gi_constipation",
+       "label": "Constipation",
+       "value": "yes",
+       "hpo": "HP:0002019"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-05-11",
+     "items": [
+      {
+       "id": "beh_sleep",
+       "label": "Sleep problems",
+       "value": "unsure",
+       "hpo": "HP:0002360"
+      },
+      {
+       "id": "beh_autism",
+       "label": "Autism diagnosis",
+       "value": "no",
+       "hpo": "HP:0000717"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-11-27",
+     "items": [
+      {
+       "id": "growth_short",
+       "label": "Short for age",
+       "value": "no",
+       "hpo": "HP:0004322"
+      },
+      {
+       "id": "growth_hearing",
+       "label": "Hearing loss",
+       "value": "no",
+       "hpo": "HP:0000365"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 39.7
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "valproate",
+     "start": "2020",
+     "ongoing": true,
+     "response": "helped sleep"
+    },
+    {
+     "name_text": "Topamax",
+     "start": "2012",
+     "ongoing": true,
+     "response": "stopped due to behaviour"
+    },
+    {
+     "name_text": "levetiracetam",
+     "start": "2023",
+     "ongoing": true,
+     "response": "stopped due to behaviour"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "no",
+    "notes": ""
+   },
+   "uploads": [
+    {
+     "type": "genetic_report",
+     "file": "NL-0005_genereport.pdf",
+     "uploaded": "2023-11-10"
+    }
+   ]
+  },
+  {
+   "participant_id": "NL-0006",
+   "study": {
+    "sponsor": "Dravet syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "caregiver",
+   "demographics": {
+    "sex": "male",
+    "birth_year": 2008,
+    "country": "CA",
+    "age_at_survey": 17
+   },
+   "diagnosis": [
+    {
+     "label": "Dravet syndrome",
+     "year": 2014,
+     "genetic_confirmation": "yes",
+     "onset": "at birth",
+     "gene": "SCN1A",
+     "variant_text": "SCN1A c.219G>A (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-04-16",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "yes",
+       "hpo": "HP:0001250",
+       "onset": "2-5 years"
+      },
+      {
+       "id": "neuro_dd",
+       "label": "Developmental delay",
+       "value": "yes",
+       "hpo": "HP:0001263"
+      },
+      {
+       "id": "neuro_microceph",
+       "label": "Small head size",
+       "value": "unsure",
+       "hpo": "HP:0000252"
+      },
+      {
+       "id": "neuro_regression",
+       "label": "Lost skills previously gained",
+       "value": "yes",
+       "hpo": "HP:0002376"
+      },
+      {
+       "id": "neuro_unsteady",
+       "label": "Unsteady walking",
+       "value": "no",
+       "hpo": "HP:0002317"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "toe walking"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-09-08",
+     "items": [
+      {
+       "id": "gi_constipation",
+       "label": "Constipation",
+       "value": "unsure",
+       "hpo": "HP:0002019"
+      },
+      {
+       "id": "gi_feeding",
+       "label": "Feeding difficulties",
+       "value": "no",
+       "hpo": "HP:0011968"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-09-08",
+     "items": [
+      {
+       "id": "beh_autism",
+       "label": "Autism diagnosis",
+       "value": "no",
+       "hpo": "HP:0000717"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 54.6
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "omeprazole",
+     "start": "2015",
+     "ongoing": true,
+     "response": "stopped due to behaviour"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "yes",
+    "notes": "mother has mild learning difficulties",
+    "relatives": [
+     {
+      "relation": "mother",
+      "diagnosis": "Dravet syndrome",
+      "orphacode": null
+     }
+    ]
+   },
+   "uploads": [
+    {
+     "type": "genetic_report",
+     "file": "NL-0006_genereport.pdf",
+     "uploaded": "2023-11-10"
+    }
+   ]
+  },
+  {
+   "participant_id": "NL-0007",
+   "study": {
+    "sponsor": "KBG syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "parent",
+   "demographics": {
+    "sex": "male",
+    "birth_year": 2012,
+    "country": "AU",
+    "age_at_survey": 13
+   },
+   "diagnosis": [
+    {
+     "label": "KBG syndrome",
+     "year": 2025,
+     "genetic_confirmation": "no",
+     "onset": "over 15 years",
+     "orphacode": "ORPHA:2332",
+     "omim": "OMIM:148050"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-12-21",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "yes",
+       "hpo": "HP:0001250",
+       "onset": "over 5 years"
+      },
+      {
+       "id": "neuro_regression",
+       "label": "Lost skills previously gained",
+       "value": "no",
+       "hpo": "HP:0002376"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "grinds teeth at night"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-05-02",
+     "items": [
+      {
+       "id": "beh_autism",
+       "label": "Autism diagnosis",
+       "value": "no",
+       "hpo": "HP:0000717"
+      },
+      {
+       "id": "beh_hyperactive",
+       "label": "Hyperactivity",
+       "value": "no",
+       "hpo": "HP:0000752"
+      },
+      {
+       "id": "beh_anxiety",
+       "label": "Anxiety",
+       "value": "no",
+       "hpo": "HP:0000739"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-01-07",
+     "items": [
+      {
+       "id": "growth_short",
+       "label": "Short for age",
+       "value": "yes",
+       "hpo": "HP:0004322"
+      },
+      {
+       "id": "growth_hearing",
+       "label": "Hearing loss",
+       "value": "yes",
+       "hpo": "HP:0000365"
+      },
+      {
+       "id": "growth_scoliosis",
+       "label": "Curved spine (scoliosis)",
+       "value": "yes",
+       "hpo": "HP:0002650"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 78.4
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "fish oil",
+     "start": "2018",
+     "ongoing": false,
+     "response": "fewer seizures"
+    },
+    {
+     "name_text": "CBD oil",
+     "start": "2019",
+     "ongoing": false,
+     "response": "no change"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "yes",
+    "notes": "mother has mild learning difficulties",
+    "relatives": [
+     {
+      "relation": "mother",
+      "diagnosis": "KBG syndrome",
+      "orphacode": "ORPHA:2332"
+     }
+    ]
+   },
+   "uploads": [
+    {
+     "type": "genetic_report",
+     "file": "NL-0007_genereport.pdf",
+     "uploaded": "2023-11-10"
+    }
+   ]
+  },
+  {
+   "participant_id": "NL-0008",
+   "study": {
+    "sponsor": "Shwachman-Diamond syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "caregiver",
+   "demographics": {
+    "sex": "female",
+    "birth_year": 2021,
+    "country": "US",
+    "age_at_survey": 4
+   },
+   "diagnosis": [
+    {
+     "label": "Shwachman-Diamond syndrome",
+     "year": 2022,
+     "genetic_confirmation": "yes",
+     "onset": "1-5 years",
+     "orphacode": "ORPHA:811",
+     "gene": "SBDS",
+     "variant_text": "SBDS c.1838dup (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-08-22",
+     "items": [
+      {
+       "id": "neuro_dd",
+       "label": "Developmental delay",
+       "value": "no",
+       "hpo": "HP:0001263"
+      },
+      {
+       "id": "neuro_microceph",
+       "label": "Small head size",
+       "value": "no",
+       "hpo": "HP:0000252"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "frequent ear infections"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-11-14",
+     "items": [
+      {
+       "id": "gi_feeding",
+       "label": "Feeding difficulties",
+       "value": "yes",
+       "hpo": "HP:0011968"
+      },
+      {
+       "id": "gi_ftt",
+       "label": "Poor weight gain",
+       "value": "yes",
+       "hpo": "HP:0001508"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-02-09",
+     "items": [
+      {
+       "id": "beh_autism",
+       "label": "Autism diagnosis",
+       "value": "no",
+       "hpo": "HP:0000717"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-04-22",
+     "items": [
+      {
+       "id": "growth_short",
+       "label": "Short for age",
+       "value": "yes",
+       "hpo": "HP:0004322"
+      },
+      {
+       "id": "growth_scoliosis",
+       "label": "Curved spine (scoliosis)",
+       "value": "unsure",
+       "hpo": "HP:0002650"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 80.9
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "Topamax",
+     "start": "2022",
+     "ongoing": true,
+     "response": "no change"
+    },
+    {
+     "name_text": "valproate",
+     "start": "2023",
+     "ongoing": true,
+     "response": "no change"
+    },
+    {
+     "name_text": "Keppra 250 twice a day",
+     "start": "2023",
+     "ongoing": true,
+     "response": "too early to say"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "yes",
+    "notes": "mother has mild learning difficulties",
+    "relatives": [
+     {
+      "relation": "mother",
+      "diagnosis": "Shwachman-Diamond syndrome",
+      "orphacode": "ORPHA:811"
+     }
+    ]
+   },
+   "uploads": [
+    {
+     "type": "genetic_report",
+     "file": "NL-0008_genereport.pdf",
+     "uploaded": "2023-11-10"
+    }
+   ]
+  },
+  {
+   "participant_id": "NL-0009",
+   "study": {
+    "sponsor": "Dravet syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "parent",
+   "demographics": {
+    "sex": "female",
+    "birth_year": 2010,
+    "country": "BR",
+    "age_at_survey": 15
+   },
+   "diagnosis": [
+    {
+     "label": "Dravet syndrome",
+     "year": 2011,
+     "genetic_confirmation": "yes",
+     "onset": "at birth",
+     "gene": "SCN1A",
+     "variant_text": "SCN1A c.1822dup (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-04-16",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "yes",
+       "hpo": "HP:0001250",
+       "onset": "2-5 years"
+      },
+      {
+       "id": "neuro_dd",
+       "label": "Developmental delay",
+       "value": "yes",
+       "hpo": "HP:0001263"
+      },
+      {
+       "id": "neuro_regression",
+       "label": "Lost skills previously gained",
+       "value": "yes",
+       "hpo": "HP:0002376"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "frequent ear infections"
+      },
+      {
+       "id": "neuro_toewalk",
+       "label": "Walks on toes",
+       "value": "yes",
+       "hpo": "HP:0040083"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-01-23",
+     "items": [
+      {
+       "id": "beh_sleep",
+       "label": "Sleep problems",
+       "value": "no",
+       "hpo": "HP:0002360"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-06-23",
+     "items": [
+      {
+       "id": "growth_short",
+       "label": "Short for age",
+       "value": "no",
+       "hpo": "HP:0004322"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 59.4
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "fish oil",
+     "start": "2018",
+     "ongoing": true,
+     "response": "no change"
+    },
+    {
+     "name_text": "levetiracetam",
+     "start": "2024",
+     "ongoing": true,
+     "response": "fewer seizures"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "no",
+    "notes": ""
+   },
+   "uploads": []
+  },
+  {
+   "participant_id": "NL-0010",
+   "study": {
+    "sponsor": "Rett syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "parent",
+   "demographics": {
+    "sex": "male",
+    "birth_year": 2020,
+    "country": "US",
+    "age_at_survey": 5
+   },
+   "diagnosis": [
+    {
+     "label": "Rett syndrome",
+     "year": 2025,
+     "genetic_confirmation": "yes",
+     "onset": "over 15 years",
+     "orphacode": "ORPHA:778",
+     "omim": "OMIM:312750",
+     "gene": "MECP2",
+     "variant_text": "MECP2 c.940G>A (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-11-13",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "yes",
+       "hpo": "HP:0001250",
+       "onset": "2-5 years"
+      },
+      {
+       "id": "neuro_dd",
+       "label": "Developmental delay",
+       "value": "no",
+       "hpo": "HP:0001263"
+      },
+      {
+       "id": "neuro_microceph",
+       "label": "Small head size",
+       "value": "yes",
+       "hpo": "HP:0000252"
+      },
+      {
+       "id": "neuro_regression",
+       "label": "Lost skills previously gained",
+       "value": "yes",
+       "hpo": "HP:0002376"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "drools a lot"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-04-01",
+     "items": [
+      {
+       "id": "gi_feeding",
+       "label": "Feeding difficulties",
+       "value": "yes",
+       "hpo": "HP:0011968"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-05-24",
+     "items": [
+      {
+       "id": "beh_autism",
+       "label": "Autism diagnosis",
+       "value": "unsure",
+       "hpo": "HP:0000717"
+      },
+      {
+       "id": "beh_aggression",
+       "label": "Aggressive behaviour",
+       "value": "no",
+       "hpo": "HP:0000718"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-09-03",
+     "items": [
+      {
+       "id": "growth_short",
+       "label": "Short for age",
+       "value": "no",
+       "hpo": "HP:0004322"
+      },
+      {
+       "id": "growth_scoliosis",
+       "label": "Curved spine (scoliosis)",
+       "value": "yes",
+       "hpo": "HP:0002650"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 88.2
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "Ritalin",
+     "start": "2021",
+     "ongoing": true,
+     "response": "helped sleep"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "no",
+    "notes": ""
+   },
+   "uploads": [
+    {
+     "type": "genetic_report",
+     "file": "NL-0010_genereport.pdf",
+     "uploaded": "2023-11-10"
+    }
+   ]
+  },
+  {
+   "participant_id": "NL-0011",
+   "study": {
+    "sponsor": "Mowat-Wilson syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "parent",
+   "demographics": {
+    "sex": "male",
+    "birth_year": 2006,
+    "country": "US",
+    "age_at_survey": 19
+   },
+   "diagnosis": [
+    {
+     "label": "Mowat-Wilson syndrome",
+     "year": 2013,
+     "genetic_confirmation": "yes",
+     "onset": "before birth",
+     "orphacode": "ORPHA:2152",
+     "omim": "OMIM:235730",
+     "gene": "ZEB2",
+     "variant_text": "ZEB2 c.1308C>T (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-04-10",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "yes",
+       "hpo": "HP:0001250",
+       "onset": "2-5 years"
+      },
+      {
+       "id": "neuro_dd",
+       "label": "Developmental delay",
+       "value": "yes",
+       "hpo": "HP:0001263"
+      },
+      {
+       "id": "neuro_speech",
+       "label": "Delayed speech",
+       "value": "no",
+       "hpo": "HP:0000750"
+      },
+      {
+       "id": "neuro_regression",
+       "label": "Lost skills previously gained",
+       "value": "no",
+       "hpo": "HP:0002376"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "very picky eater"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-04-08",
+     "items": [
+      {
+       "id": "gi_constipation",
+       "label": "Constipation",
+       "value": "yes",
+       "hpo": "HP:0002019"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-08-08",
+     "items": [
+      {
+       "id": "beh_hyperactive",
+       "label": "Hyperactivity",
+       "value": "no",
+       "hpo": "HP:0000752"
+      },
+      {
+       "id": "beh_aggression",
+       "label": "Aggressive behaviour",
+       "value": "no",
+       "hpo": "HP:0000718"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-05-25",
+     "items": [
+      {
+       "id": "growth_short",
+       "label": "Short for age",
+       "value": "no",
+       "hpo": "HP:0004322"
+      },
+      {
+       "id": "growth_hearing",
+       "label": "Hearing loss",
+       "value": "unsure",
+       "hpo": "HP:0000365"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 81.7
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "Keppra 250 twice a day",
+     "start": "2014",
+     "ongoing": true,
+     "response": "fewer seizures"
+    },
+    {
+     "name_text": "Ritalin",
+     "start": "2014",
+     "ongoing": false,
+     "response": "no change"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "yes",
+    "notes": "mother has mild learning difficulties",
+    "relatives": [
+     {
+      "relation": "mother",
+      "diagnosis": "Mowat-Wilson syndrome",
+      "orphacode": "ORPHA:2152"
+     }
+    ]
+   },
+   "uploads": []
+  },
+  {
+   "participant_id": "NL-0012",
+   "study": {
+    "sponsor": "encephalopathy due to GLUT1 deficiency Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "parent",
+   "demographics": {
+    "sex": "male",
+    "birth_year": 2006,
+    "country": "US",
+    "age_at_survey": 19
+   },
+   "diagnosis": [
+    {
+     "label": "encephalopathy due to GLUT1 deficiency",
+     "year": 2009,
+     "genetic_confirmation": "yes",
+     "onset": "1-5 years",
+     "orphacode": "ORPHA:71277",
+     "omim": "OMIM:606777",
+     "gene": "SLC2A1",
+     "variant_text": "SLC2A1 c.1014G>A (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-10-16",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "yes",
+       "hpo": "HP:0001250",
+       "onset": "1-2 years"
+      },
+      {
+       "id": "neuro_dd",
+       "label": "Developmental delay",
+       "value": "yes",
+       "hpo": "HP:0001263"
+      },
+      {
+       "id": "neuro_microceph",
+       "label": "Small head size",
+       "value": "yes",
+       "hpo": "HP:0000252"
+      },
+      {
+       "id": "neuro_regression",
+       "label": "Lost skills previously gained",
+       "value": "no",
+       "hpo": "HP:0002376"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-10-06",
+     "items": [
+      {
+       "id": "beh_sleep",
+       "label": "Sleep problems",
+       "value": "no",
+       "hpo": "HP:0002360"
+      },
+      {
+       "id": "beh_autism",
+       "label": "Autism diagnosis",
+       "value": "no",
+       "hpo": "HP:0000717"
+      },
+      {
+       "id": "beh_anxiety",
+       "label": "Anxiety",
+       "value": "unsure",
+       "hpo": "HP:0000739"
+      },
+      {
+       "id": "beh_aggression",
+       "label": "Aggressive behaviour",
+       "value": "no",
+       "hpo": "HP:0000718"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 86.0
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "levetiracetam",
+     "start": "2016",
+     "ongoing": false,
+     "response": "fewer seizures"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "yes",
+    "notes": "mother has mild learning difficulties",
+    "relatives": [
+     {
+      "relation": "mother",
+      "diagnosis": "encephalopathy due to GLUT1 deficiency",
+      "orphacode": "ORPHA:71277"
+     }
+    ]
+   },
+   "uploads": [
+    {
+     "type": "genetic_report",
+     "file": "NL-0012_genereport.pdf",
+     "uploaded": "2023-11-10"
+    }
+   ]
+  },
+  {
+   "participant_id": "NL-0013",
+   "study": {
+    "sponsor": "Phelan-McDermid syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "parent",
+   "demographics": {
+    "sex": "male",
+    "birth_year": 2015,
+    "country": "US",
+    "age_at_survey": 10
+   },
+   "diagnosis": [
+    {
+     "label": "Phelan-McDermid syndrome",
+     "year": 2015,
+     "genetic_confirmation": "yes",
+     "onset": "before birth",
+     "orphacode": "ORPHA:48652",
+     "omim": "OMIM:606232",
+     "gene": "SHANK3",
+     "variant_text": "SHANK3 c.322del (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-07-22",
+     "items": [
+      {
+       "id": "neuro_dd",
+       "label": "Developmental delay",
+       "value": "no",
+       "hpo": "HP:0001263"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "sensitive to loud noise"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-01-20",
+     "items": [
+      {
+       "id": "beh_sleep",
+       "label": "Sleep problems",
+       "value": "yes",
+       "hpo": "HP:0002360"
+      },
+      {
+       "id": "beh_autism",
+       "label": "Autism diagnosis",
+       "value": "yes",
+       "hpo": "HP:0000717"
+      },
+      {
+       "id": "beh_aggression",
+       "label": "Aggressive behaviour",
+       "value": "no",
+       "hpo": "HP:0000718"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-03-13",
+     "items": [
+      {
+       "id": "growth_hearing",
+       "label": "Hearing loss",
+       "value": "no",
+       "hpo": "HP:0000365"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 40.8
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "Topamax",
+     "start": "2023",
+     "ongoing": true,
+     "response": "fewer seizures"
+    },
+    {
+     "name_text": "valproate",
+     "start": "2023",
+     "ongoing": true,
+     "response": "no change"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "yes",
+    "notes": "mother has mild learning difficulties",
+    "relatives": [
+     {
+      "relation": "mother",
+      "diagnosis": "Phelan-McDermid syndrome",
+      "orphacode": "ORPHA:48652"
+     }
+    ]
+   },
+   "uploads": []
+  },
+  {
+   "participant_id": "NL-0014",
+   "study": {
+    "sponsor": "Shwachman-Diamond syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "self",
+   "demographics": {
+    "sex": "female",
+    "birth_year": 2018,
+    "country": "GB",
+    "age_at_survey": 7
+   },
+   "diagnosis": [
+    {
+     "label": "Shwachman-Diamond syndrome",
+     "year": 2020,
+     "genetic_confirmation": "yes",
+     "onset": "before birth",
+     "orphacode": "ORPHA:811",
+     "gene": "SBDS",
+     "variant_text": "SBDS c.1711G>A (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-01-20",
+     "items": [
+      {
+       "id": "neuro_regression",
+       "label": "Lost skills previously gained",
+       "value": "unsure",
+       "hpo": "HP:0002376"
+      },
+      {
+       "id": "neuro_unsteady",
+       "label": "Unsteady walking",
+       "value": "unsure",
+       "hpo": "HP:0002317"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "hand flapping when excited"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-03-14",
+     "items": [
+      {
+       "id": "gi_constipation",
+       "label": "Constipation",
+       "value": "no",
+       "hpo": "HP:0002019"
+      },
+      {
+       "id": "gi_feeding",
+       "label": "Feeding difficulties",
+       "value": "yes",
+       "hpo": "HP:0011968"
+      },
+      {
+       "id": "gi_ftt",
+       "label": "Poor weight gain",
+       "value": "yes",
+       "hpo": "HP:0001508"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-01-23",
+     "items": [
+      {
+       "id": "beh_sleep",
+       "label": "Sleep problems",
+       "value": "no",
+       "hpo": "HP:0002360"
+      },
+      {
+       "id": "beh_aggression",
+       "label": "Aggressive behaviour",
+       "value": "no",
+       "hpo": "HP:0000718"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-01-06",
+     "items": [
+      {
+       "id": "growth_short",
+       "label": "Short for age",
+       "value": "yes",
+       "hpo": "HP:0004322"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 67.9
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "Keppra 250 twice a day",
+     "start": "2024",
+     "ongoing": false,
+     "response": "fewer seizures"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "no",
+    "notes": ""
+   },
+   "uploads": []
+  },
+  {
+   "participant_id": "NL-0015",
+   "study": {
+    "sponsor": "KBG syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "parent",
+   "demographics": {
+    "sex": "female",
+    "birth_year": 2015,
+    "country": "BR",
+    "age_at_survey": 10
+   },
+   "diagnosis": [
+    {
+     "label": "KBG syndrome",
+     "year": 2023,
+     "genetic_confirmation": "yes",
+     "onset": "over 15 years",
+     "orphacode": "ORPHA:2332",
+     "omim": "OMIM:148050",
+     "gene": "ANKRD11",
+     "variant_text": "ANKRD11 c.859G>A (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-12-11",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "yes",
+       "hpo": "HP:0001250",
+       "onset": "under 1 year"
+      },
+      {
+       "id": "neuro_hypotonia",
+       "label": "Low muscle tone (floppy)",
+       "value": "no",
+       "hpo": "HP:0001252"
+      },
+      {
+       "id": "neuro_microceph",
+       "label": "Small head size",
+       "value": "yes",
+       "hpo": "HP:0000252"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "toe walking"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-12-04",
+     "items": [
+      {
+       "id": "gi_constipation",
+       "label": "Constipation",
+       "value": "no",
+       "hpo": "HP:0002019"
+      },
+      {
+       "id": "gi_feeding",
+       "label": "Feeding difficulties",
+       "value": "no",
+       "hpo": "HP:0011968"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-02-06",
+     "items": [
+      {
+       "id": "beh_hyperactive",
+       "label": "Hyperactivity",
+       "value": "yes",
+       "hpo": "HP:0000752"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-06-07",
+     "items": [
+      {
+       "id": "growth_short",
+       "label": "Short for age",
+       "value": "yes",
+       "hpo": "HP:0004322"
+      },
+      {
+       "id": "growth_scoliosis",
+       "label": "Curved spine (scoliosis)",
+       "value": "no",
+       "hpo": "HP:0002650"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 40.0
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "Keppra 250 twice a day",
+     "start": "2018",
+     "ongoing": true,
+     "response": "no change"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "no",
+    "notes": ""
+   },
+   "uploads": []
+  },
+  {
+   "participant_id": "NL-0016",
+   "study": {
+    "sponsor": "Phelan-McDermid syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "caregiver",
+   "demographics": {
+    "sex": "male",
+    "birth_year": 2016,
+    "country": "DE",
+    "age_at_survey": 9
+   },
+   "diagnosis": [
+    {
+     "label": "Phelan-McDermid syndrome",
+     "year": 2018,
+     "genetic_confirmation": "no",
+     "onset": "5-15 years",
+     "orphacode": "ORPHA:48652",
+     "omim": "OMIM:606232"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-01-10",
+     "items": [
+      {
+       "id": "neuro_hypotonia",
+       "label": "Low muscle tone (floppy)",
+       "value": "yes",
+       "hpo": "HP:0001252"
+      },
+      {
+       "id": "neuro_speech",
+       "label": "Delayed speech",
+       "value": "unsure",
+       "hpo": "HP:0000750"
+      },
+      {
+       "id": "neuro_regression",
+       "label": "Lost skills previously gained",
+       "value": "unsure",
+       "hpo": "HP:0002376"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "frequent ear infections"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "very picky eater"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-11-24",
+     "items": [
+      {
+       "id": "gi_reflux",
+       "label": "Reflux",
+       "value": "no",
+       "hpo": "HP:0002020"
+      },
+      {
+       "id": "gi_constipation",
+       "label": "Constipation",
+       "value": "no",
+       "hpo": "HP:0002019"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-07-27",
+     "items": [
+      {
+       "id": "beh_sleep",
+       "label": "Sleep problems",
+       "value": "yes",
+       "hpo": "HP:0002360"
+      },
+      {
+       "id": "beh_autism",
+       "label": "Autism diagnosis",
+       "value": "yes",
+       "hpo": "HP:0000717"
+      },
+      {
+       "id": "beh_anxiety",
+       "label": "Anxiety",
+       "value": "no",
+       "hpo": "HP:0000739"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-06-11",
+     "items": [
+      {
+       "id": "growth_hearing",
+       "label": "Hearing loss",
+       "value": "no",
+       "hpo": "HP:0000365"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 70.0
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "CBD oil",
+     "start": "2025",
+     "ongoing": false,
+     "response": "too early to say"
+    },
+    {
+     "name_text": "valproate",
+     "start": "2025",
+     "ongoing": false,
+     "response": "fewer seizures"
+    },
+    {
+     "name_text": "Keppra 250 twice a day",
+     "start": "2017",
+     "ongoing": true,
+     "response": "no change"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "no",
+    "notes": ""
+   },
+   "uploads": []
+  },
+  {
+   "participant_id": "NL-0017",
+   "study": {
+    "sponsor": "Shwachman-Diamond syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "parent",
+   "demographics": {
+    "sex": "female",
+    "birth_year": 2022,
+    "country": "CA",
+    "age_at_survey": 3
+   },
+   "diagnosis": [
+    {
+     "label": "Shwachman-Diamond syndrome",
+     "year": 2023,
+     "genetic_confirmation": "no",
+     "onset": "over 15 years",
+     "orphacode": "ORPHA:811"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-08-06",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "no",
+       "hpo": "HP:0001250"
+      },
+      {
+       "id": "neuro_hypotonia",
+       "label": "Low muscle tone (floppy)",
+       "value": "no",
+       "hpo": "HP:0001252"
+      },
+      {
+       "id": "neuro_microceph",
+       "label": "Small head size",
+       "value": "no",
+       "hpo": "HP:0000252"
+      },
+      {
+       "id": "neuro_unsteady",
+       "label": "Unsteady walking",
+       "value": "no",
+       "hpo": "HP:0002317"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-02-01",
+     "items": [
+      {
+       "id": "gi_feeding",
+       "label": "Feeding difficulties",
+       "value": "yes",
+       "hpo": "HP:0011968"
+      },
+      {
+       "id": "gi_ftt",
+       "label": "Poor weight gain",
+       "value": "yes",
+       "hpo": "HP:0001508"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-02-09",
+     "items": [
+      {
+       "id": "beh_sleep",
+       "label": "Sleep problems",
+       "value": "unsure",
+       "hpo": "HP:0002360"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-02-12",
+     "items": [
+      {
+       "id": "growth_short",
+       "label": "Short for age",
+       "value": "yes",
+       "hpo": "HP:0004322"
+      },
+      {
+       "id": "growth_hearing",
+       "label": "Hearing loss",
+       "value": "no",
+       "hpo": "HP:0000365"
+      },
+      {
+       "id": "growth_scoliosis",
+       "label": "Curved spine (scoliosis)",
+       "value": "unsure",
+       "hpo": "HP:0002650"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 77.2
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "melatonin 3mg",
+     "start": "2025",
+     "ongoing": false,
+     "response": "stopped due to behaviour"
+    },
+    {
+     "name_text": "levetiracetam",
+     "start": "2025",
+     "ongoing": false,
+     "response": "fewer seizures"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "no",
+    "notes": ""
+   },
+   "uploads": []
+  },
+  {
+   "participant_id": "NL-0018",
+   "study": {
+    "sponsor": "Rett syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "parent",
+   "demographics": {
+    "sex": "female",
+    "birth_year": 2012,
+    "country": "CA",
+    "age_at_survey": 13
+   },
+   "diagnosis": [
+    {
+     "label": "Rett syndrome",
+     "year": 2013,
+     "genetic_confirmation": "yes",
+     "onset": "1-5 years",
+     "orphacode": "ORPHA:778",
+     "omim": "OMIM:312750",
+     "gene": "MECP2",
+     "variant_text": "MECP2 c.1560dup (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-07-04",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "yes",
+       "hpo": "HP:0001250",
+       "onset": "under 1 year"
+      },
+      {
+       "id": "neuro_hypotonia",
+       "label": "Low muscle tone (floppy)",
+       "value": "no",
+       "hpo": "HP:0001252"
+      },
+      {
+       "id": "neuro_speech",
+       "label": "Delayed speech",
+       "value": "unsure",
+       "hpo": "HP:0000750"
+      },
+      {
+       "id": "neuro_microceph",
+       "label": "Small head size",
+       "value": "no",
+       "hpo": "HP:0000252"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "sensitive to loud noise"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "toe walking"
+      },
+      {
+       "id": "neuro_toewalk",
+       "label": "Walks on toes",
+       "value": "yes",
+       "hpo": "HP:0040083"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-09-25",
+     "items": [
+      {
+       "id": "gi_feeding",
+       "label": "Feeding difficulties",
+       "value": "no",
+       "hpo": "HP:0011968"
+      },
+      {
+       "id": "gi_ftt",
+       "label": "Poor weight gain",
+       "value": "yes",
+       "hpo": "HP:0001508"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-04-13",
+     "items": [
+      {
+       "id": "growth_scoliosis",
+       "label": "Curved spine (scoliosis)",
+       "value": "yes",
+       "hpo": "HP:0002650"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 39.1
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "melatonin 3mg",
+     "start": "2016",
+     "ongoing": true,
+     "response": "fewer seizures"
+    },
+    {
+     "name_text": "risperidone 0.5",
+     "start": "2019",
+     "ongoing": false,
+     "response": "too early to say"
+    },
+    {
+     "name_text": "fish oil",
+     "start": "2015",
+     "ongoing": false,
+     "response": "stopped due to behaviour"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "no",
+    "notes": ""
+   },
+   "uploads": [
+    {
+     "type": "genetic_report",
+     "file": "NL-0018_genereport.pdf",
+     "uploaded": "2023-11-10"
+    }
+   ]
+  },
+  {
+   "participant_id": "NL-0019",
+   "study": {
+    "sponsor": "encephalopathy due to GLUT1 deficiency Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "parent",
+   "demographics": {
+    "sex": "male",
+    "birth_year": 2020,
+    "country": "US",
+    "age_at_survey": 5
+   },
+   "diagnosis": [
+    {
+     "label": "encephalopathy due to GLUT1 deficiency",
+     "year": 2020,
+     "genetic_confirmation": "yes",
+     "onset": "under 1 year",
+     "orphacode": "ORPHA:71277",
+     "omim": "OMIM:606777",
+     "gene": "SLC2A1",
+     "variant_text": "SLC2A1 c.1928del (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-07-03",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "yes",
+       "hpo": "HP:0001250",
+       "onset": "2-5 years"
+      },
+      {
+       "id": "neuro_hypotonia",
+       "label": "Low muscle tone (floppy)",
+       "value": "no",
+       "hpo": "HP:0001252"
+      },
+      {
+       "id": "neuro_dd",
+       "label": "Developmental delay",
+       "value": "yes",
+       "hpo": "HP:0001263"
+      },
+      {
+       "id": "neuro_microceph",
+       "label": "Small head size",
+       "value": "yes",
+       "hpo": "HP:0000252"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "sensitive to loud noise"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "toe walking"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-01-23",
+     "items": [
+      {
+       "id": "gi_constipation",
+       "label": "Constipation",
+       "value": "no",
+       "hpo": "HP:0002019"
+      },
+      {
+       "id": "gi_feeding",
+       "label": "Feeding difficulties",
+       "value": "no",
+       "hpo": "HP:0011968"
+      },
+      {
+       "id": "gi_ftt",
+       "label": "Poor weight gain",
+       "value": "yes",
+       "hpo": "HP:0001508"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-08-07",
+     "items": [
+      {
+       "id": "beh_aggression",
+       "label": "Aggressive behaviour",
+       "value": "no",
+       "hpo": "HP:0000718"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-06-18",
+     "items": [
+      {
+       "id": "growth_hearing",
+       "label": "Hearing loss",
+       "value": "no",
+       "hpo": "HP:0000365"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 74.2
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "Ritalin",
+     "start": "2023",
+     "ongoing": true,
+     "response": "helped sleep"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "no",
+    "notes": ""
+   },
+   "uploads": []
+  },
+  {
+   "participant_id": "NL-0020",
+   "study": {
+    "sponsor": "encephalopathy due to GLUT1 deficiency Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "self",
+   "demographics": {
+    "sex": "male",
+    "birth_year": 2009,
+    "country": "GB",
+    "age_at_survey": 16
+   },
+   "diagnosis": [
+    {
+     "label": "encephalopathy due to GLUT1 deficiency",
+     "year": 2025,
+     "genetic_confirmation": "no",
+     "onset": "under 1 year",
+     "orphacode": "ORPHA:71277",
+     "omim": "OMIM:606777"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-06-12",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "yes",
+       "hpo": "HP:0001250",
+       "onset": "1-2 years"
+      },
+      {
+       "id": "neuro_dd",
+       "label": "Developmental delay",
+       "value": "yes",
+       "hpo": "HP:0001263"
+      },
+      {
+       "id": "neuro_microceph",
+       "label": "Small head size",
+       "value": "yes",
+       "hpo": "HP:0000252"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-12-16",
+     "items": [
+      {
+       "id": "gi_feeding",
+       "label": "Feeding difficulties",
+       "value": "no",
+       "hpo": "HP:0011968"
+      },
+      {
+       "id": "gi_ftt",
+       "label": "Poor weight gain",
+       "value": "no",
+       "hpo": "HP:0001508"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-01-21",
+     "items": [
+      {
+       "id": "beh_hyperactive",
+       "label": "Hyperactivity",
+       "value": "no",
+       "hpo": "HP:0000752"
+      },
+      {
+       "id": "beh_aggression",
+       "label": "Aggressive behaviour",
+       "value": "yes",
+       "hpo": "HP:0000718"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-07-08",
+     "items": [
+      {
+       "id": "growth_scoliosis",
+       "label": "Curved spine (scoliosis)",
+       "value": "no",
+       "hpo": "HP:0002650"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 83.6
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "CBD oil",
+     "start": "2020",
+     "ongoing": false,
+     "response": "no change"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "yes",
+    "notes": "mother has mild learning difficulties",
+    "relatives": [
+     {
+      "relation": "mother",
+      "diagnosis": "encephalopathy due to GLUT1 deficiency",
+      "orphacode": "ORPHA:71277"
+     }
+    ]
+   },
+   "uploads": []
+  },
+  {
+   "participant_id": "NL-0021",
+   "study": {
+    "sponsor": "Shwachman-Diamond syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "self",
+   "demographics": {
+    "sex": "female",
+    "birth_year": 2010,
+    "country": "GB",
+    "age_at_survey": 15
+   },
+   "diagnosis": [
+    {
+     "label": "Shwachman-Diamond syndrome",
+     "year": 2017,
+     "genetic_confirmation": "yes",
+     "onset": "under 1 year",
+     "orphacode": "ORPHA:811",
+     "gene": "SBDS",
+     "variant_text": "SBDS c.353dup (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-11-25",
+     "items": [
+      {
+       "id": "neuro_hypotonia",
+       "label": "Low muscle tone (floppy)",
+       "value": "unsure",
+       "hpo": "HP:0001252"
+      },
+      {
+       "id": "neuro_dd",
+       "label": "Developmental delay",
+       "value": "no",
+       "hpo": "HP:0001263"
+      },
+      {
+       "id": "neuro_regression",
+       "label": "Lost skills previously gained",
+       "value": "no",
+       "hpo": "HP:0002376"
+      },
+      {
+       "id": "neuro_unsteady",
+       "label": "Unsteady walking",
+       "value": "no",
+       "hpo": "HP:0002317"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "very picky eater"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-07-02",
+     "items": [
+      {
+       "id": "gi_constipation",
+       "label": "Constipation",
+       "value": "no",
+       "hpo": "HP:0002019"
+      },
+      {
+       "id": "gi_feeding",
+       "label": "Feeding difficulties",
+       "value": "yes",
+       "hpo": "HP:0011968"
+      },
+      {
+       "id": "gi_ftt",
+       "label": "Poor weight gain",
+       "value": "yes",
+       "hpo": "HP:0001508"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-07-02",
+     "items": [
+      {
+       "id": "beh_autism",
+       "label": "Autism diagnosis",
+       "value": "no",
+       "hpo": "HP:0000717"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-08-03",
+     "items": [
+      {
+       "id": "growth_short",
+       "label": "Short for age",
+       "value": "yes",
+       "hpo": "HP:0004322"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 65.3
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "omeprazole",
+     "start": "2022",
+     "ongoing": true,
+     "response": "stopped due to behaviour"
+    },
+    {
+     "name_text": "melatonin 3mg",
+     "start": "2012",
+     "ongoing": true,
+     "response": "no change"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "yes",
+    "notes": "mother has mild learning difficulties",
+    "relatives": [
+     {
+      "relation": "mother",
+      "diagnosis": "Shwachman-Diamond syndrome",
+      "orphacode": "ORPHA:811"
+     }
+    ]
+   },
+   "uploads": [
+    {
+     "type": "genetic_report",
+     "file": "NL-0021_genereport.pdf",
+     "uploaded": "2023-11-10"
+    }
+   ]
+  },
+  {
+   "participant_id": "NL-0022",
+   "study": {
+    "sponsor": "Dravet syndrome Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "self",
+   "demographics": {
+    "sex": "female",
+    "birth_year": 2017,
+    "country": "DE",
+    "age_at_survey": 8
+   },
+   "diagnosis": [
+    {
+     "label": "Dravet syndrome",
+     "year": 2025,
+     "genetic_confirmation": "yes",
+     "onset": "at birth",
+     "gene": "SCN1A",
+     "variant_text": "SCN1A c.2627C>T (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-04-24",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "yes",
+       "hpo": "HP:0001250",
+       "onset": "over 5 years"
+      },
+      {
+       "id": "neuro_dd",
+       "label": "Developmental delay",
+       "value": "yes",
+       "hpo": "HP:0001263"
+      },
+      {
+       "id": "neuro_speech",
+       "label": "Delayed speech",
+       "value": "no",
+       "hpo": "HP:0000750"
+      },
+      {
+       "id": "neuro_regression",
+       "label": "Lost skills previously gained",
+       "value": "yes",
+       "hpo": "HP:0002376"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "grinds teeth at night"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - gi",
+     "version": "1.1",
+     "language": "en",
+     "completed": "2024-02-20",
+     "items": [
+      {
+       "id": "gi_feeding",
+       "label": "Feeding difficulties",
+       "value": "no",
+       "hpo": "HP:0011968"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-06-12",
+     "items": [
+      {
+       "id": "beh_hyperactive",
+       "label": "Hyperactivity",
+       "value": "unsure",
+       "hpo": "HP:0000752"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-05-11",
+     "items": [
+      {
+       "id": "growth_hearing",
+       "label": "Hearing loss",
+       "value": "unsure",
+       "hpo": "HP:0000365"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 49.9
+      }
+     ]
+    }
+   ],
+   "medications": [],
+   "family_history": {
+    "affected_relatives": "yes",
+    "notes": "mother has mild learning difficulties",
+    "relatives": [
+     {
+      "relation": "mother",
+      "diagnosis": "Dravet syndrome",
+      "orphacode": null
+     }
+    ]
+   },
+   "uploads": []
+  },
+  {
+   "participant_id": "NL-0023",
+   "study": {
+    "sponsor": "Charcot-Marie-Tooth disease type 1A Foundation",
+    "protocol_version": "2.3"
+   },
+   "respondent": "caregiver",
+   "demographics": {
+    "sex": "male",
+    "birth_year": 2019,
+    "country": "BR",
+    "age_at_survey": 6
+   },
+   "diagnosis": [
+    {
+     "label": "Charcot-Marie-Tooth disease type 1A",
+     "year": 2022,
+     "genetic_confirmation": "yes",
+     "onset": "before birth",
+     "orphacode": "ORPHA:101081",
+     "omim": "OMIM:118220",
+     "gene": "PMP22",
+     "variant_text": "PMP22 c.1318C>T (de novo)"
+    }
+   ],
+   "surveys": [
+    {
+     "instrument": "Symptoms - neuro",
+     "version": "1.4",
+     "language": "en",
+     "completed": "2024-05-24",
+     "items": [
+      {
+       "id": "neuro_seizures",
+       "label": "Has had seizures",
+       "value": "no",
+       "hpo": "HP:0001250"
+      },
+      {
+       "id": "neuro_hypotonia",
+       "label": "Low muscle tone (floppy)",
+       "value": "no",
+       "hpo": "HP:0001252"
+      },
+      {
+       "id": "neuro_unsteady",
+       "label": "Unsteady walking",
+       "value": "yes",
+       "hpo": "HP:0002317"
+      },
+      {
+       "id": "neuro_other",
+       "label": "Other neurological or behavioural symptoms",
+       "value": "hand flapping when excited"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - beh",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-12-23",
+     "items": [
+      {
+       "id": "beh_hyperactive",
+       "label": "Hyperactivity",
+       "value": "unsure",
+       "hpo": "HP:0000752"
+      }
+     ]
+    },
+    {
+     "instrument": "Symptoms - growth",
+     "version": "1.0",
+     "language": "en",
+     "completed": "2024-06-09",
+     "items": [
+      {
+       "id": "growth_scoliosis",
+       "label": "Curved spine (scoliosis)",
+       "value": "yes",
+       "hpo": "HP:0002650"
+      }
+     ]
+    },
+    {
+     "instrument": "PedsQL 4.0 Parent Report",
+     "version": "4.0",
+     "language": "en",
+     "completed": "2024-06-01",
+     "items": [],
+     "scores": [
+      {
+       "name": "total",
+       "value": 82.1
+      }
+     ]
+    }
+   ],
+   "medications": [
+    {
+     "name_text": "Keppra 250 twice a day",
+     "start": "2022",
+     "ongoing": false,
+     "response": "fewer seizures"
+    }
+   ],
+   "family_history": {
+    "affected_relatives": "unsure",
+    "notes": ""
+   },
+   "uploads": []
+  }
+ ]
+}

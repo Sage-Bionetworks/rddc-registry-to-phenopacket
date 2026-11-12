@@ -1,0 +1,7 @@
+.venv/
+.tools/
+work/
+results/
+.nextflow*
+__pycache__/
+*.pyc

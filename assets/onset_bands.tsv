@@ -1,0 +1,10 @@
+band_text	hpo_id	note
+before birth	HP:0030674	
+at birth	HP:0003577	
+under 1 year	HP:0003593	HPO infantile onset is 28 days to 1 year; band includes neonatal period
+1-2 years	HP:0011463	
+2-5 years	HP:0011463	
+1-5 years	HP:0011463	
+5-15 years	HP:0003621	
+over 5 years	HP:0003621	assumption: registry band is open-ended; HPO juvenile onset stops at 15
+over 15 years	HP:0011462	assumption: mapped to young adult onset; band also covers adult onset
