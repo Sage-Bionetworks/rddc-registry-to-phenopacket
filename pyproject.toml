@@ -1,6 +1,6 @@
 [project]
 name = "rddc-registry-to-phenopacket"
-version = "0.1.0"
+version = "0.2.0"
 description = "Prototype: registry exports (hierarchical JSON, wide CSV) to GA4GH Phenopackets v2 via LinkML-Map"
 requires-python = ">=3.12"
 dependencies = [

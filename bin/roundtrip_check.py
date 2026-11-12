@@ -48,6 +48,8 @@ def main():
             if phrase not in um: probs.append(f"expected in unmapped report: {phrase!r}")
         if t.get("planted_obsolete") and t["planted_obsolete"] in present | excluded:
             probs.append("obsolete code leaked into features")
+        if t.get("planted_obsolete") and not t.get("planted_replacement"):
+            if t["planted_obsolete"] not in um: probs.append("expected obsolete code in unmapped report")
         ok = not probs
         failures += not ok
         rows.append({"registry": a.registry, "id": t["id"], "status": "pass" if ok else "FAIL", "problems": "; ".join(probs)})

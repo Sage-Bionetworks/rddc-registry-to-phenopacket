@@ -7,6 +7,7 @@ process BUILD_PHENOPACKETS {
     input:
     tuple val(registry), path(resolved)
     path assets
+    path vocab
 
     output:
     tuple val(registry), path("${registry}/phenopackets"),    emit: phenopackets
@@ -19,6 +20,7 @@ process BUILD_PHENOPACKETS {
     build_phenopackets.py \\
         --resolved $resolved \\
         --assets $assets \\
+        --vocab $vocab \\
         --outdir $registry \\
         --created-by "${workflow.manifest.name} ${workflow.manifest.version}"
 

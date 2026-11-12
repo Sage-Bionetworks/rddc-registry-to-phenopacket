@@ -11,8 +11,11 @@ Values are invented. Diseases, HPO terms, genes and drugs come from assets/ so e
 code in the fixtures exists; a few deliberately unmappable or obsolete values are
 planted to exercise the unmapped report (see PLANTED below).
 """
-import argparse, csv, json, random
+import argparse, csv, json, random, sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from crosswalk import Vocab  # noqa: E402  the truth uses the same resolver as the pipeline
 
 ONSET_JSON = ["before birth", "at birth", "under 1 year", "1-5 years", "5-15 years"]
 ONSET_CSV = {"1": "Before birth", "2": "At birth", "3": "Under 1 year", "4": "1-5 years", "5": "5-15 years", "6": "Over 15 years"}
@@ -51,16 +54,13 @@ FORMS = {
 }
 CHECKLIST_HPO = {h for _, items in FORMS.values() for _, _, h in items}
 
-# Free-text "other" phrases: (text, expected HPO or None when it should stay unmapped)
-FREE_TEXT = [
-    ("hand flapping when excited", "HP:0100023"),
-    ("drools a lot", "HP:0002307"),
-    ("frequent ear infections", "HP:0000403"),
-    ("grinds teeth at night", "HP:0003763"),
-    ("sensitive to loud noise", "HP:0010780"),
-    ("toe walking", None),            # HP:0040083 is obsolete; lexicon has no entry
-    ("head banging", None),
-    ("very picky eater", None),
+# Free-text "other" phrases. Which ones resolve is decided by the committed vocabulary subset
+# (lay lexicon, release labels and synonyms) through the pipeline's own resolver, so the
+# truth follows the release: "toe walking" is unmapped while HP:0040083 has no live
+# replacement in the subset, and mapped once a release supplies one.
+FREE_TEXT_PHRASES = [
+    "hand flapping when excited", "drools a lot", "frequent ear infections", "grinds teeth at night",
+    "sensitive to loud noise", "toe walking", "head banging", "very picky eater",
 ]
 MEDS = [  # (as typed, rxcui) ; None = not in lexicon
     ("Keppra 250 twice a day", "114477"), ("levetiracetam", "114477"), ("valproate", "11118"),
@@ -77,7 +77,9 @@ def load_diseases(assets):
         return list(csv.DictReader(f, delimiter="\t"))
 
 
-def make_participants(n, rng, diseases):
+def make_participants(n, rng, diseases, vocab):
+    free_text = [(t, vocab.resolve_phrase(t)) for t in FREE_TEXT_PHRASES]
+    planted_replacement = vocab.replacement(PLANTED["obsolete_inline_hpo"])
     out = []
     for i in range(n):
         d = rng.choice(diseases)
@@ -91,7 +93,7 @@ def make_participants(n, rng, diseases):
         sex = rng.choice(["female", "male"])
         birth_year = rng.randint(2006, 2022)
         age = 2025 - birth_year
-        free = rng.sample(FREE_TEXT, k=rng.choice([0, 1, 1, 2]))
+        free = rng.sample(free_text, k=rng.choice([0, 1, 1, 2]))
         meds = rng.sample(MEDS, k=rng.choice([0, 1, 1, 2, 3]))
         genetic = rng.random() < 0.8
         seizure_onset = rng.choice(list(SEIZURE_ONSET_CSV)) if "HP:0001250" in present else None
@@ -105,6 +107,7 @@ def make_participants(n, rng, diseases):
             fh=rng.choice(["no", "no", "no", "yes", "unsure"]),
             score=round(rng.uniform(35, 90), 1),
             has_report=rng.random() < 0.5,
+            planted=(i % 9 == 0), planted_replacement=planted_replacement,
         ))
     return out
 
@@ -246,11 +249,15 @@ def write_truth(parts, nl_ids, rc_ids, outdir):
             unmapped_free = sorted(t for t, h in p["free"] if not h)
             meds = sorted({r for _, r, *_ in p["meds"] if r})
             unmapped_meds = sorted(t for t, r, *_ in p["meds"] if not r)
+            present = set(p["present"]) | set(free_hpo)
             base = dict(mondo=d["mondo_id"], hgnc=d["hgnc_id"] if p["genetic"] else None,
-                        present=sorted(set(p["present"]) | set(free_hpo)), absent=p["absent"],
+                        present=sorted(present), absent=p["absent"],
                         rxcui=meds, unmapped_free_text=unmapped_free, unmapped_medications=unmapped_meds)
-            f.write(json.dumps({"registry": "nordlike", "id": nl_ids[p["idx"]], **base,
-                                "planted_obsolete": PLANTED["obsolete_inline_hpo"] if p["idx"] % 9 == 0 else None}) + "\n")
+            # only the JSON registry carries the planted obsolete code; its live replacement is expected there
+            nl_present = sorted(present | ({p["planted_replacement"]} if p["planted"] and p["planted_replacement"] else set()))
+            f.write(json.dumps({"registry": "nordlike", "id": nl_ids[p["idx"]], **base, "present": nl_present,
+                                "planted_obsolete": PLANTED["obsolete_inline_hpo"] if p["planted"] else None,
+                                "planted_replacement": p["planted_replacement"] if p["planted"] else None}) + "\n")
             f.write(json.dumps({"registry": "redcaplike", "id": rc_ids[p["idx"]], **base,
                                 "rxcui": sorted({r for _, r, *_ in p["meds"][:3] if r}),
                                 "unmapped_medications": sorted(t for t, r, *_ in p["meds"][:3] if not r)}) + "\n")
@@ -264,7 +271,7 @@ def main():
     ap.add_argument("--seed", type=int, default=7)
     a = ap.parse_args()
     rng = random.Random(a.seed)
-    parts = make_participants(a.n, rng, load_diseases(a.assets))
+    parts = make_participants(a.n, rng, load_diseases(a.assets), Vocab(a.assets, "nordlike"))
     nl = write_nordlike(parts, a.outdir, rng)
     rc = write_redcaplike(parts, a.outdir)
     write_truth(parts, nl, rc, a.outdir)

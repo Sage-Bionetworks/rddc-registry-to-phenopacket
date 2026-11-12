@@ -1,50 +1,66 @@
 id	label	obsolete	replaced_by	kind
-HP:0001250	Seizure	false		feature
-HP:0001249	Intellectual disability	false		feature
-HP:0001263	Global developmental delay	false		feature
 HP:0000252	Microcephaly	false		feature
-HP:0001252	Hypotonia	false		feature
-HP:0002020	Gastroesophageal reflux	false		feature
-HP:0000365	Hearing impairment	false		feature
-HP:0001508	Failure to thrive	false		feature
-HP:0000708	Atypical behavior	false		feature
-HP:0002360	Sleep disturbance	false		feature
-HP:0001270	Motor delay	false		feature
-HP:0000750	Delayed speech and language development	false		feature
-HP:0000717	Autism	false		feature
-HP:0000486	Strabismus	false		feature
-HP:0004322	Short stature	false		feature
-HP:0002104	Apnea	false		feature
-HP:0002650	Scoliosis	false		feature
-HP:0002240	Hepatomegaly	false		feature
-HP:0012378	Fatigue	false		feature
-HP:0011968	Feeding difficulties	false		feature
-HP:0002019	Constipation	false		feature
-HP:0000752	Hyperactivity	false		feature
-HP:0001337	Tremor	false		feature
-HP:0100023	Recurrent hand flapping	false		feature
-HP:0002307	Drooling	false		feature
-HP:0000403	Recurrent otitis media	false		feature
-HP:0003763	Bruxism	false		feature
-HP:0010780	Hyperacusis	false		feature
-HP:0002376	Developmental regression	false		feature
-HP:0002353	EEG abnormality	false		feature
-HP:0001344	Absent speech	false		feature
 HP:0000316	Hypertelorism	false		feature
-HP:0001251	Ataxia	false		feature
-HP:0004305	Involuntary movements	false		feature
-HP:0002317	Unsteady gait	false		feature
-HP:0001288	Gait disturbance	false		feature
-HP:0000739	Anxiety	false		feature
+HP:0000365	Hearing impairment	false		feature
+HP:0000403	Recurrent otitis media	false		feature
+HP:0000486	Strabismus	false		feature
+HP:0000708	Atypical behavior	false		feature
+HP:0000717	Autism	false		feature
 HP:0000718	Aggressive behavior	false		feature
-HP:0012171	Stereotypical hand wringing	false		feature
+HP:0000739	Anxiety	false		feature
+HP:0000750	Delayed speech and language development	false		feature
+HP:0000752	Hyperactivity	false		feature
+HP:0001249	Intellectual disability	false		feature
+HP:0001250	Seizure	false		feature
+HP:0001251	Ataxia	false		feature
+HP:0001252	Hypotonia	false		feature
+HP:0001263	Global developmental delay	false		feature
+HP:0001270	Motor delay	false		feature
+HP:0001288	Gait disturbance	false		feature
+HP:0001337	Tremor	false		feature
+HP:0001344	Absent speech	false		feature
+HP:0001508	Failure to thrive	false		feature
 HP:0001903	Anemia	false		feature
-HP:0040083	obsolete Toe walking	true		feature
-HP:0011463	Childhood onset	false		onset
+HP:0002019	Constipation	false		feature
+HP:0002020	Gastroesophageal reflux	false		feature
+HP:0002104	Apnea	false		feature
+HP:0002240	Hepatomegaly	false		feature
+HP:0002307	Drooling	false		feature
+HP:0002317	Unsteady gait	false		feature
+HP:0002353	EEG abnormality	false		feature
+HP:0002360	Sleep disturbance	false		feature
+HP:0002376	Developmental regression	false		feature
+HP:0002650	Scoliosis	false		feature
 HP:0003577	Congenital onset	false		onset
-HP:0003593	Infantile onset	false		onset
-HP:0003621	Juvenile onset	false		onset
-HP:0011462	Young adult onset	false		onset
 HP:0003581	Adult onset	false		onset
+HP:0003584	Late onset	false		onset
+HP:0003593	Infantile onset	false		onset
+HP:0003596	Middle age onset	false		onset
+HP:0003621	Juvenile onset	false		onset
+HP:0003623	Neonatal onset	false		onset
+HP:0003674	Onset	false		onset
+HP:0003763	Bruxism	false		feature
+HP:0004305	Involuntary movements	false		feature
+HP:0004322	Short stature	false		feature
+HP:0010780	Hyperacusis	false		feature
+HP:0011460	Embryonal onset	false		onset
+HP:0011461	Fetal onset	false		onset
+HP:0011462	Young adult onset	false		onset
+HP:0011463	Childhood onset	false		onset
+HP:0011968	Feeding difficulties	false		feature
+HP:0012171	Stereotypical hand wringing	false		feature
+HP:0012378	Fatigue	false		feature
+HP:0025708	Early young adult onset	false		onset
+HP:0025709	Intermediate young adult onset	false		onset
+HP:0025710	Late young adult onset	false		onset
+HP:0030051	Tip-toe gait	false		feature
 HP:0030674	Antenatal onset	false		onset
+HP:0034197	Third trimester onset	false		onset
+HP:0034198	Second trimester onset	false		onset
+HP:0034199	Late first trimester onset	false		onset
+HP:0040083	obsolete Toe walking	true	HP:0030051	feature
+HP:0100023	Recurrent hand flapping	false		feature
 HP:0410280	Pediatric onset	false		onset
+HP:4000040	Puerpural onset	false		onset
+HP:6000314	Perimenopausal onset	false		onset
+HP:6000315	Postmenopausal onset	false		onset

@@ -35,18 +35,36 @@ def read_tsv(path):
 
 
 class Vocab:
-    def __init__(self, assets, registry):
-        self.hp = {r["id"]: r for r in read_tsv(assets / "hp_terms.tsv")}
+    """Release tables (hp_terms, hp_synonyms, mondo_xrefs, mondo_labels, genes) come from the
+    vocab directory, built by bin/build_vocab.py; curated tables (onset bands, lay terms,
+    drug lexicon, survey lookups) come from assets. The committed assets directory holds a
+    subset of both, so vocab defaults to assets."""
+
+    def __init__(self, assets, registry, vocab=None):
+        vocab = vocab or assets
+        self.hp = {r["id"]: r for r in read_tsv(vocab / "hp_terms.tsv")}
         self.hp_by_label = {norm(r["label"]): r["id"] for r in self.hp.values() if r["obsolete"] != "true"}
-        self.diseases = read_tsv(assets / "diseases.tsv")
-        self.mondo_by_xref = {}
-        self.mondo_by_label = {}
-        self.hgnc_by_symbol = {}
-        for d in self.diseases:
-            for x in (d["orphanet"], d["omim"]):
-                if x: self.mondo_by_xref[x] = d
-            self.mondo_by_label[norm(d["label"])] = d
-            if d["gene_symbol"]: self.hgnc_by_symbol[d["gene_symbol"].upper()] = d["hgnc_id"]
+        self.hp_by_synonym = {}
+        if (vocab / "hp_synonyms.tsv").exists():
+            for r in read_tsv(vocab / "hp_synonyms.tsv"):
+                if r["scope"] in ("exact", "related") and r["hpo_id"] in self.hp:
+                    self.hp_by_synonym.setdefault(norm(r["synonym"]), r["hpo_id"])
+        self.mondo_by_xref, self.mondo_by_label, self.hgnc_by_symbol = {}, {}, {}
+        if (vocab / "mondo_xrefs.tsv").exists():
+            for r in read_tsv(vocab / "mondo_xrefs.tsv"):
+                if r["predicate"] in ("", "skos:exactMatch"):
+                    self.mondo_by_xref.setdefault(r["xref"], {"mondo_id": r["mondo_id"], "label": r["mondo_label"]})
+            for r in read_tsv(vocab / "mondo_labels.tsv"):
+                self.mondo_by_label.setdefault(norm(r["label"]), {"mondo_id": r["mondo_id"], "label": r["label"]})
+        if (vocab / "genes.tsv").exists():
+            for r in sorted(read_tsv(vocab / "genes.tsv"), key=lambda r: r["kind"] != "symbol"):
+                self.hgnc_by_symbol.setdefault(r["symbol"].upper(), r["hgnc_id"])
+        if not self.mondo_by_xref:  # fallback: the generator's disease catalogue
+            for d in read_tsv(assets / "diseases.tsv"):
+                for x in (d["orphanet"], d["omim"]):
+                    if x: self.mondo_by_xref[x] = d
+                self.mondo_by_label[norm(d["label"])] = d
+                if d["gene_symbol"]: self.hgnc_by_symbol.setdefault(d["gene_symbol"].upper(), d["hgnc_id"])
         self.onset = {norm(r["band_text"]): r for r in read_tsv(assets / "onset_bands.tsv")}
         self.lay = {norm(r["text"]): r["hpo_id"] for r in read_tsv(assets / "lay_terms.tsv")}
         self.drugs = sorted(((norm(r["text"]), r) for r in read_tsv(assets / "drug_lexicon.tsv")), key=lambda kv: -len(kv[0]))
@@ -56,6 +74,21 @@ class Vocab:
 
     def hpo(self, hid):
         return self.hp.get(hid)
+
+    def resolve_phrase(self, phrase):
+        """Free-text phrase -> HPO id: lay lexicon, release label, release synonym, then a
+        lexicon key contained in the phrase. None when nothing matches."""
+        ph = norm(phrase)
+        if not ph: return None
+        return (self.lay.get(ph) or self.hp_by_label.get(ph) or self.hp_by_synonym.get(ph)
+                or next((h for k, h in self.lay.items() if k in ph), None))
+
+    def replacement(self, hid):
+        """Current id for an obsolete term when the release names a live replacement."""
+        t = self.hp.get(hid)
+        if not t or t["obsolete"] != "true": return None
+        rep = t["replaced_by"]
+        return rep if rep and rep in self.hp and self.hp[rep]["obsolete"] != "true" else None
 
     def lookup(self, registry, instrument, version, qid):
         return self.lookups.get(f"{registry}_{slug(instrument)}_{version}", {}).get(qid)
@@ -78,8 +111,9 @@ class Crosswalk:
         if not t:
             self.report(rid, field, hid, "code not in HPO table"); return None, None
         if t["obsolete"] == "true":
-            if t["replaced_by"]:
-                return t["replaced_by"], "obsolete_replaced"
+            rep = self.v.replacement(hid)
+            if rep:
+                return rep, "obsolete_replaced"
             self.report(rid, field, hid, "obsolete HPO term with no replacement"); return None, None
         return hid, "inline_code"
 
@@ -125,6 +159,9 @@ class Crosswalk:
             if not hid and a.get("label"):
                 lab = self.v.hp_by_label.get(norm(a["label"]))
                 if lab: hid, res = lab, "label_match"
+                else:
+                    syn = self.v.hp_by_synonym.get(norm(a["label"]))
+                    if syn: hid, res = syn, "synonym_match"
             if hid:
                 a.update(hpo_id=hid, hpo_label=self.v.hp[hid]["label"], resolution=res)
             else:
@@ -134,9 +171,8 @@ class Crosswalk:
         if a.get("free_text"):
             terms = []
             for phrase in re.split(r"[;,]|\band\b", a["free_text"]):
-                ph = norm(phrase)
-                if not ph: continue
-                hid = self.v.lay.get(ph) or next((h for k, h in self.v.lay.items() if k in ph), None)
+                if not norm(phrase): continue
+                hid = self.v.resolve_phrase(phrase)
                 if hid: terms.append({"text": phrase.strip(), "hpo_id": hid, "hpo_label": self.v.hp[hid]["label"]})
                 else: self.report(rid, field + ".free_text", phrase.strip(), "phrase not in lay-term lexicon")
             a["free_text_terms"] = terms
@@ -178,11 +214,12 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--records", type=Path, required=True)
     ap.add_argument("--assets", type=Path, required=True)
+    ap.add_argument("--vocab", type=Path, help="release tables from bin/build_vocab.py; defaults to --assets")
     ap.add_argument("--registry", required=True)
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--unmapped", type=Path, required=True)
     a = ap.parse_args()
-    xw = Crosswalk(Vocab(a.assets, a.registry), a.registry)
+    xw = Crosswalk(Vocab(a.assets, a.registry, a.vocab), a.registry)
     recs = [xw.record(r) for r in load_records(a.records)]
     with open(a.out, "w") as f:
         for r in recs: f.write(json.dumps(r) + "\n")

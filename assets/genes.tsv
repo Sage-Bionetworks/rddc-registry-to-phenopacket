@@ -1,0 +1,48 @@
+symbol	hgnc_id	name	kind
+"""CGI-97"	HGNC:19440	SBDS ribosome maturation factor	alias
+"""DYT18"	HGNC:11005	solute carrier family 2 member 1	alias
+"""GLUT1"	HGNC:11005	solute carrier family 2 member 1	prev
+"""HNPP"	HGNC:9118	peripheral myelin protein 22	alias
+"""KIAA0569"	HGNC:14881	zinc finger E-box binding homeobox 2	alias
+"""LZ16"	HGNC:21316	ankyrin repeat domain 11	alias
+"""Nav1.1"	HGNC:10585	sodium voltage-gated channel alpha subunit 1	alias
+"""RTT"	HGNC:6990	methyl-CpG binding protein 2	prev
+"""SCN1"	HGNC:10585	sodium voltage-gated channel alpha subunit 1	prev
+"""SPANK-2"	HGNC:14294	SH3 and multiple ankyrin repeat domains 3	alias
+"ANCO-1"""	HGNC:21316	ankyrin repeat domain 11	alias
+ANCO1	HGNC:21316	ankyrin repeat domain 11	alias
+ANKRD11	HGNC:21316	ankyrin repeat domain 11	symbol
+CMT1A	HGNC:9118	peripheral myelin protein 22	prev
+"CSE"""	HGNC:11005	solute carrier family 2 member 1	prev
+DYT9	HGNC:11005	solute carrier family 2 member 1	alias
+"FEB3"""	HGNC:10585	sodium voltage-gated channel alpha subunit 1	prev
+FLJ10917	HGNC:19440	SBDS ribosome maturation factor	alias
+GAS3	HGNC:9118	peripheral myelin protein 22	alias
+GEFSP2	HGNC:10585	sodium voltage-gated channel alpha subunit 1	alias
+GLUT	HGNC:11005	solute carrier family 2 member 1	prev
+"GLUT-1"""	HGNC:11005	solute carrier family 2 member 1	alias
+HBSCI	HGNC:10585	sodium voltage-gated channel alpha subunit 1	alias
+"HMSNIA"""	HGNC:9118	peripheral myelin protein 22	alias
+HTLVR	HGNC:11005	solute carrier family 2 member 1	prev
+KIAA1650	HGNC:14294	SH3 and multiple ankyrin repeat domains 3	alias
+MECP2	HGNC:6990	methyl-CpG binding protein 2	symbol
+MRX16	HGNC:6990	methyl-CpG binding protein 2	prev
+"MRX79"""	HGNC:6990	methyl-CpG binding protein 2	prev
+NAC1	HGNC:10585	sodium voltage-gated channel alpha subunit 1	alias
+PMP22	HGNC:9118	peripheral myelin protein 22	symbol
+"PSAP2"""	HGNC:14294	SH3 and multiple ankyrin repeat domains 3	alias
+SBDS	HGNC:19440	SBDS ribosome maturation factor	symbol
+SCN1A	HGNC:10585	sodium voltage-gated channel alpha subunit 1	symbol
+"SDO1"""	HGNC:19440	SBDS ribosome maturation factor	alias
+SDS	HGNC:19440	SBDS ribosome maturation factor	alias
+SHANK3	HGNC:14294	SH3 and multiple ankyrin repeat domains 3	symbol
+SIP-1	HGNC:14881	zinc finger E-box binding homeobox 2	alias
+"SIP1"""	HGNC:14881	zinc finger E-box binding homeobox 2	alias
+SLC2A1	HGNC:11005	solute carrier family 2 member 1	symbol
+"SMEI"""	HGNC:10585	sodium voltage-gated channel alpha subunit 1	alias
+SWDS	HGNC:19440	SBDS ribosome maturation factor	alias
+Sp110	HGNC:9118	peripheral myelin protein 22	alias
+T13	HGNC:21316	ankyrin repeat domain 11	alias
+ZEB2	HGNC:14881	zinc finger E-box binding homeobox 2	symbol
+ZFHX1B	HGNC:14881	zinc finger E-box binding homeobox 2	prev
+prosap2	HGNC:14294	SH3 and multiple ankyrin repeat domains 3	alias

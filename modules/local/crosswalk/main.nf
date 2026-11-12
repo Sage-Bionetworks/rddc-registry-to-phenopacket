@@ -7,6 +7,7 @@ process CROSSWALK {
     input:
     tuple val(registry), path(records)
     path assets
+    path vocab
 
     output:
     tuple val(registry), path("${registry}.resolved.jsonl"), emit: resolved
@@ -17,6 +18,7 @@ process CROSSWALK {
     crosswalk.py \\
         --records $records \\
         --assets $assets \\
+        --vocab $vocab \\
         --registry $registry \\
         --out ${registry}.resolved.jsonl \\
         --unmapped ${registry}.unmapped.tsv

@@ -5,3 +5,4 @@ results/
 .nextflow*
 __pycache__/
 *.pyc
+vocab/

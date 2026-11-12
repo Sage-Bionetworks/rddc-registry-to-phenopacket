@@ -34,10 +34,13 @@ tests/                            samplesheet, fixtures (tests/data), tests/run_
 ```bash
 make tools      # uv virtualenv (.venv), nextflow and phenopacket-tools into .tools/
 make test       # stages on the fixtures, strict round trip, no Nextflow   (~20 s)
-make nf-test    # full pipeline, -profile test,local, results in results/test
-make validate   # phenopacket-tools validation of results/test (Java)
+make nf-test    # full pipeline on the committed vocabulary subset, results in results/test
+make vocab      # download HPO, Mondo SSSOM and HGNC releases, build vocab/tables with OAK (~5 s after download)
+make nf-full    # pipeline on the full releases with OAK graph checks in validation (~45 s)
+make validate   # phenopacket-tools (Java) validation of results/test; see verification notes
 make lint       # schema lint and both mapping specs validated against source and target
 make data spec  # regenerate fixtures, recompile the wide-table schema and spec
+make assets-subset  # re-derive the committed assets/ vocabulary subset as a slice of the release
 ```
 
 Outputs per registry in `results/test/<registry>/`:
@@ -50,6 +53,7 @@ Outputs per registry in `results/test/<registry>/`:
 | `phenopackets/<id>.phenopacket.json` | one phenopacket per participant |
 | `extras/<id>.extras.json` | everything the phenopacket could not hold, verbatim, plus an `unrepresented` list saying why |
 | `build_report.tsv` | per-participant counts: features, diseases, interpretations, actions, files, unknowns, unresolved, unrepresented |
+| `<registry>.validation.tsv` | validator findings: schema, required metadata, resource coverage, HPO existence, obsoletion, label drift, onset class, and with `--hp_json` ancestor redundancy and conflicts |
 | `<registry>.roundtrip.tsv` | pass or FAIL per participant against the generator's truth (fixtures only) |
 
 `results/test/summary/` concatenates the unmapped, build and round-trip reports across registries.
@@ -91,11 +95,23 @@ Things LinkML-Map 0.6 decided for this design, found while building it:
 ## Resolution and what is reported
 
 `crosswalk.py` resolves in a fixed order and never guesses silently. A checklist answer
-uses the inline code if the registry supplies one (checked against the HPO table, obsolete
-codes replaced only when a replacement is known), else the survey lookup
-`assets/survey_lookups/<registry>_<instrument>_<version>.tsv`, else an exact label match.
-Free text is split on `;`, `,` and `and`, and each phrase is matched against a small
-lay-term lexicon. Disease codes go through MONDO cross-references (`ORPHA:` and `OMIM:`),
+uses the inline code if the registry supplies one (checked against the HPO release,
+obsolete codes replaced only when the release names a live replacement), else the survey
+lookup `assets/survey_lookups/<registry>_<instrument>_<version>.tsv`, else an exact match
+on a release label, else on an exact or related release synonym. Free text is split on
+`;`, `,` and `and`, and each phrase goes through the lay-term lexicon, then release labels
+and synonyms, then a lexicon key contained in the phrase.
+
+Vocabulary comes in two layers. `--vocab` points at release tables built by
+`bin/build_vocab.py` (`make vocab`): HPO from hp.json through OAK, Mondo cross-references
+from its published SSSOM file, gene symbols from the HGNC complete set, plus a
+`versions.yml` that is written into every phenopacket's `metaData.resources`. `--assets`
+holds the curated tables (onset bands, lay terms, drug lexicon, survey lookups) and a
+committed subset of the release tables, derived by `make assets-subset`, so the test
+profile runs offline against a true slice of the 2026-09-01 HPO release. The generator
+derives its truth through the pipeline's own resolver, so the truth follows the release:
+when the release names a live replacement for a planted obsolete code, the replacement is
+expected, and a phrase that matches a release synonym is expected to resolve. Disease codes go through MONDO cross-references (`ORPHA:` and `OMIM:`),
 then label. Medications match a drug lexicon with brand names. Everything else lands in
 `unmapped.tsv` with a reason, and the round-trip check requires the planted unmappable
 values to be there.
@@ -130,15 +146,20 @@ data model and the normalisation design still need to decide.
 
 ## What is and is not verified
 
-Verified here: `make test` and `make nf-test` pass with every participant round-tripping
-in both registries; both mapping specs pass `linkml-map validate-spec --strict`; every
-identifier in `assets/` was checked against OLS, HGNC and RxNav on 2026-11-11.
+Verified here: `make test`, `make nf-test` and `make nf-full` pass with every participant
+round-tripping in both registries, against the committed subset and against the full
+HPO 2026-09-01, Mondo and HGNC releases. The Python validator in the pipeline reports no
+errors or warnings on either run, including OAK ancestor checks in `nf-full`. Both mapping
+specs pass `linkml-map validate-spec --strict`. The committed `assets/` vocabulary subset is
+derived from the releases by `make assets-subset`; the curated tables were checked against
+OLS, HGNC and RxNav on 2026-11-11.
 
-Not verified: the phenopacket-tools validator (`make validate`, and the optional
-`VALIDATE_PHENOPACKETS` process behind `--pxf_jar`) was downloaded but could not be run in
-the environment this was scaffolded in, so its command line is unexercised. The Dockerfile
-is written but the image has not been built. The vocabulary tables are subsets; a real run
-needs full releases through OAK, which is the first follow-up.
+Not verified: the phenopacket-tools Java validator (`make validate`, and the optional
+`VALIDATE_PXF` process behind `--pxf_jar`) was downloaded but could not be run in the
+environment this was built in, so its command line is unexercised; the Python validator
+covers the same base checks and the HPO checks. The Dockerfile is written but the image has
+not been built. RxNorm has no licence-free bulk download, so medications still resolve
+through the curated lexicon only.
 
 ## Adding a registry
 
@@ -151,10 +172,8 @@ needs full releases through OAK, which is the first follow-up.
 
 ## Next steps, in order
 
-1. Replace the vendored subsets with OAK-backed HPO, MONDO and HGNC releases and record
-   the release in each phenopacket's `metaData.resources`.
-2. Run and wire the validator; add `--hpo` validation once a full HPO is available.
-3. Decide the four representation gaps above with the model owners, then add the
+1. Decide the representation gaps above with the model owners, then add the
    phenopacket-to-OMOP projection as a DuckDB module, reusing rddc-fhir-to-omop.
-4. Obtain one blank data dictionary and one test export from each real registry on the
+2. Obtain one blank data dictionary and one test export from each real registry on the
    TA1 sheet and replace the inferred source schemas.
+3. Run the Java validator once in an environment that allows it, and build the image.

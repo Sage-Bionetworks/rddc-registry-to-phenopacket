@@ -1,6 +1,5 @@
-// Validate with the phenopacket-tools CLI (Java). Runs only when --pxf_jar is given.
-// NOT YET EXERCISED in this environment: the jar could not be run during scaffolding,
-// so check the `validate` subcommand's flags against `java -jar <jar> validate --help`.
+// Validate phenopackets in Python: schema parse, required metadata, resource coverage, HPO term
+// checks against the release tables, and (with --hp_json) ancestor conflicts through OAK.
 process VALIDATE_PHENOPACKETS {
     tag "$registry"
     label 'process_single'
@@ -8,13 +7,21 @@ process VALIDATE_PHENOPACKETS {
 
     input:
     tuple val(registry), path(phenopackets)
-    path jar
+    path vocab
+    path hp_json
 
     output:
-    tuple val(registry), path("${registry}.validation.txt"), emit: report
+    tuple val(registry), path("${registry}.validation.tsv"), emit: report
 
     script:
+    def strict = params.strict_validation ? '--strict' : ''
+    def graph  = hp_json.name != 'NO_HP_JSON' ? "--hp-json $hp_json" : ''
     """
-    java -jar $jar validate ${phenopackets}/*.phenopacket.json > ${registry}.validation.txt 2>&1
+    validate_phenopackets.py \\
+        --phenopackets $phenopackets \\
+        --vocab $vocab \\
+        $graph \\
+        --out ${registry}.validation.tsv \\
+        $strict
     """
 }

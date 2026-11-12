@@ -11,6 +11,7 @@ treatment response text, family history, unknown answers, unresolved values.
 import argparse, csv, json
 from datetime import datetime, timezone
 from pathlib import Path
+import yaml
 import phenopackets as pp
 from google.protobuf.json_format import MessageToJson
 from google.protobuf.timestamp_pb2 import Timestamp
@@ -123,14 +124,18 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--resolved", type=Path, required=True)
     ap.add_argument("--assets", type=Path, required=True)
+    ap.add_argument("--vocab", type=Path, help="release tables and versions.yml from bin/build_vocab.py; defaults to --assets")
     ap.add_argument("--outdir", type=Path, required=True)
-    ap.add_argument("--created-by", default="rddc-registry-to-phenopacket 0.1.0")
-    ap.add_argument("--hp-version", default="subset-2026-11-11")
-    ap.add_argument("--mondo-version", default="subset-2026-11-11")
+    ap.add_argument("--created-by", default="rddc-registry-to-phenopacket 0.2.0")
     a = ap.parse_args()
-    with open(a.assets / "hp_terms.tsv", newline="") as f:
+    vocab = a.vocab or a.assets
+    with open(vocab / "hp_terms.tsv", newline="") as f:
         hp = {r["id"]: r for r in csv.DictReader(f, delimiter="\t")}
-    versions = {"HP": a.hp_version, "MONDO": a.mondo_version, "HGNC": "subset-2026-11-11", "RxNorm": "subset-2026-11-11"}
+    versions = {"HP": "unversioned", "MONDO": "unversioned", "HGNC": "unversioned", "RxNorm": "lexicon-only"}
+    if (vocab / "versions.yml").exists():
+        v = yaml.safe_load((vocab / "versions.yml").read_text()) or {}
+        versions.update({k: str(v[k]) for k in versions if v.get(k)})
+        if v.get("subset"): versions = {k: f"{val} (subset)" for k, val in versions.items()}
     (a.outdir / "phenopackets").mkdir(parents=True, exist_ok=True)
     (a.outdir / "extras").mkdir(parents=True, exist_ok=True)
     rows = []

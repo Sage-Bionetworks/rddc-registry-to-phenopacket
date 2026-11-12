@@ -6,7 +6,7 @@ NEXTFLOW := $(CURDIR)/.tools/nextflow
 PXF_JAR  := $(CURDIR)/.tools/phenopacket-tools-cli-$(PXF_VERSION)/phenopacket-tools-cli-$(PXF_VERSION).jar
 PY := $(CURDIR)/.venv/bin/python
 
-.PHONY: tools venv data spec lint test nf-test nf-test-docker validate image clean
+.PHONY: tools venv data spec lint test nf-test nf-full nf-test-docker validate vocab assets-subset image clean
 
 tools: venv .tools/nextflow $(PXF_JAR)   ## python env, nextflow and phenopacket-tools into .venv/ and .tools/
 
@@ -45,8 +45,26 @@ nf-test: .tools/nextflow venv   ## full pipeline via Nextflow, no container
 nf-test-docker: .tools/nextflow image
 	$(NEXTFLOW) run . -profile test,docker --outdir results/test-docker
 
-validate: $(PXF_JAR)   ## phenopacket-tools validation of the last nf-test results
+validate: $(PXF_JAR)   ## phenopacket-tools (Java) validation of the last nf-test results; the Python validator runs inside the pipeline
 	java -jar $(PXF_JAR) validate results/test/*/phenopackets/*.phenopacket.json
+
+# Full vocabulary releases (not committed): hp.json, Mondo SSSOM cross-references, HGNC complete set.
+vocab/hp.json:
+	mkdir -p vocab && curl -fsSL -o $@ http://purl.obolibrary.org/obo/hp.json
+vocab/mondo.sssom.tsv:
+	mkdir -p vocab && curl -fsSL -o $@ http://purl.obolibrary.org/obo/mondo/mappings/mondo.sssom.tsv
+vocab/hgnc_complete_set.txt:
+	mkdir -p vocab && curl -fsSL -o $@ https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt
+
+vocab: venv vocab/hp.json vocab/mondo.sssom.tsv vocab/hgnc_complete_set.txt   ## build release tables into vocab/tables (OAK; ~1 min)
+	$(PY) bin/build_vocab.py --hp-json vocab/hp.json --mondo-sssom vocab/mondo.sssom.tsv --hgnc vocab/hgnc_complete_set.txt --out vocab/tables
+
+assets-subset: vocab   ## re-derive the committed assets/ vocabulary subset as a slice of the release
+	$(PY) bin/build_vocab.py --hp-json vocab/hp.json --mondo-sssom vocab/mondo.sssom.tsv --hgnc vocab/hgnc_complete_set.txt \
+	  --out assets --subset-from assets/hp_terms.tsv assets/diseases.tsv assets/lay_terms.tsv assets/survey_lookups/*.tsv
+
+nf-full: .tools/nextflow venv vocab   ## pipeline on the fixtures with the full releases and OAK graph checks (round trip not strict)
+	$(NEXTFLOW) run . -profile test,local --outdir results/full --vocab vocab/tables --hp_json vocab/hp.json --strict_roundtrip false
 
 image:   ## build rddc-registry-to-phenopacket:dev (not yet exercised)
 	docker build -t rddc-registry-to-phenopacket:dev .

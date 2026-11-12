@@ -1,0 +1,47 @@
+xref	mondo_id	mondo_label	predicate
+DOID:0060479	MONDO:0009833	Shwachman-Diamond syndrome	skos:exactMatch
+DOID:0060485	MONDO:0009341	Mowat-Wilson syndrome	skos:exactMatch
+DOID:0070561	MONDO:0011724	encephalopathy due to GLUT1 deficiency	skos:exactMatch
+DOID:0080354	MONDO:0011652	Phelan-McDermid syndrome	skos:exactMatch
+DOID:0080422	MONDO:0100135	Dravet syndrome	skos:exactMatch
+DOID:0110148	MONDO:0007309	Charcot-Marie-Tooth disease type 1A	skos:exactMatch
+DOID:1206	MONDO:0010726	Rett syndrome	skos:exactMatch
+DOID:14780	MONDO:0007846	KBG syndrome	skos:exactMatch
+ICD10CM:D61.02	MONDO:0009833	Shwachman-Diamond syndrome	skos:exactMatch
+ICD10CM:F84.2	MONDO:0010726	Rett syndrome	skos:exactMatch
+ICD10CM:G40.83	MONDO:0100135	Dravet syndrome	skos:exactMatch
+ICD10CM:Q93.52	MONDO:0011652	Phelan-McDermid syndrome	skos:exactMatch
+NCIT:C116573	MONDO:0100135	Dravet syndrome	skos:exactMatch
+NCIT:C157124	MONDO:0011652	Phelan-McDermid syndrome	skos:exactMatch
+NCIT:C61235	MONDO:0009833	Shwachman-Diamond syndrome	skos:exactMatch
+NCIT:C74999	MONDO:0009341	Mowat-Wilson syndrome	skos:exactMatch
+NCIT:C75468	MONDO:0007309	Charcot-Marie-Tooth disease type 1A	skos:exactMatch
+NCIT:C75488	MONDO:0010726	Rett syndrome	skos:exactMatch
+OMIM:118220	MONDO:0007309	Charcot-Marie-Tooth disease type 1A	skos:exactMatch
+OMIM:148050	MONDO:0007846	KBG syndrome	skos:exactMatch
+OMIM:235730	MONDO:0009341	Mowat-Wilson syndrome	skos:exactMatch
+OMIM:312750	MONDO:0010726	Rett syndrome	skos:exactMatch
+OMIM:606232	MONDO:0011652	Phelan-McDermid syndrome	skos:exactMatch
+OMIM:606777	MONDO:0011724	encephalopathy due to GLUT1 deficiency	skos:exactMatch
+OMIMPS:260400	MONDO:0009833	Shwachman-Diamond syndrome	skos:exactMatch
+Orphanet:101081	MONDO:0007309	Charcot-Marie-Tooth disease type 1A	skos:exactMatch
+Orphanet:2152	MONDO:0009341	Mowat-Wilson syndrome	skos:exactMatch
+Orphanet:2332	MONDO:0007846	KBG syndrome	skos:exactMatch
+Orphanet:48652	MONDO:0011652	Phelan-McDermid syndrome	skos:exactMatch
+Orphanet:71277	MONDO:0011724	encephalopathy due to GLUT1 deficiency	skos:exactMatch
+Orphanet:778	MONDO:0010726	Rett syndrome	skos:exactMatch
+Orphanet:811	MONDO:0009833	Shwachman-Diamond syndrome	skos:exactMatch
+SCTID:230437002	MONDO:0100135	Dravet syndrome	skos:exactMatch
+SCTID:68618008	MONDO:0010726	Rett syndrome	skos:exactMatch
+SCTID:699310000	MONDO:0011652	Phelan-McDermid syndrome	skos:exactMatch
+SCTID:703535000	MONDO:0009341	Mowat-Wilson syndrome	skos:exactMatch
+SCTID:711156009	MONDO:0007846	KBG syndrome	skos:exactMatch
+SCTID:89454001	MONDO:0009833	Shwachman-Diamond syndrome	skos:exactMatch
+UMLS:C0035372	MONDO:0010726	Rett syndrome	skos:exactMatch
+UMLS:C0220687	MONDO:0007846	KBG syndrome	skos:exactMatch
+UMLS:C0270911	MONDO:0007309	Charcot-Marie-Tooth disease type 1A	skos:exactMatch
+UMLS:C0272170	MONDO:0009833	Shwachman-Diamond syndrome	skos:exactMatch
+UMLS:C0751122	MONDO:0100135	Dravet syndrome	skos:exactMatch
+UMLS:C1853490	MONDO:0011652	Phelan-McDermid syndrome	skos:exactMatch
+UMLS:C1856113	MONDO:0009341	Mowat-Wilson syndrome	skos:exactMatch
+UMLS:C4551966	MONDO:0011724	encephalopathy due to GLUT1 deficiency	skos:exactMatch

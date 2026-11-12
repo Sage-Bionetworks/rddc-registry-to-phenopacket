@@ -10,12 +10,17 @@
  *   transform      LinkML-Map specification to RegistryRecord (mappings/)
  *   source_type    class in source_schema that the data file instantiates
  *   truth          optional ground-truth JSONL for the round-trip check (synthetic data only)
+ *
+ * --vocab   directory of release tables from bin/build_vocab.py (make vocab); defaults to assets/,
+ *           which holds a committed subset so the test profile runs offline.
+ * --hp_json hp.json for OAK graph checks in validation (slow to load; off by default).
  */
 
 include { LINKML_MAP           } from './modules/local/linkml_map/main.nf'
 include { CROSSWALK            } from './modules/local/crosswalk/main.nf'
 include { BUILD_PHENOPACKETS   } from './modules/local/build_phenopackets/main.nf'
 include { VALIDATE_PHENOPACKETS } from './modules/local/validate_phenopackets/main.nf'
+include { VALIDATE_PXF          } from './modules/local/validate_pxf/main.nf'
 include { ROUNDTRIP_CHECK      } from './modules/local/roundtrip_check/main.nf'
 
 def resolvePath(String p) {
@@ -30,6 +35,8 @@ workflow {
     if (!params.outdir)      error "--outdir is required"
 
     assets        = channel.value(file(params.assets, checkIfExists: true, type: 'dir'))
+    vocab         = channel.value(file(params.vocab ?: params.assets, checkIfExists: true, type: 'dir'))
+    hp_json       = channel.value(params.hp_json ? file(params.hp_json, checkIfExists: true) : file("${projectDir}/assets/NO_HP_JSON"))
     target_schema = channel.value(file(params.target_schema, checkIfExists: true))
 
     rows = channel.fromPath(params.samplesheet, checkIfExists: true)
@@ -41,11 +48,12 @@ workflow {
         }
 
     LINKML_MAP(rows.map { r -> r[0..5] }, target_schema)
-    CROSSWALK(LINKML_MAP.out.records, assets)
-    BUILD_PHENOPACKETS(CROSSWALK.out.resolved, assets)
+    CROSSWALK(LINKML_MAP.out.records, assets, vocab)
+    BUILD_PHENOPACKETS(CROSSWALK.out.resolved, assets, vocab)
+    VALIDATE_PHENOPACKETS(BUILD_PHENOPACKETS.out.phenopackets, vocab, hp_json)
 
     if (params.pxf_jar) {
-        VALIDATE_PHENOPACKETS(BUILD_PHENOPACKETS.out.phenopackets, channel.value(file(params.pxf_jar, checkIfExists: true)))
+        VALIDATE_PXF(BUILD_PHENOPACKETS.out.phenopackets, channel.value(file(params.pxf_jar, checkIfExists: true)))
     }
 
     with_truth = rows.filter { r -> r[6] }.map { r -> tuple(r[0], r[6]) }
@@ -62,6 +70,9 @@ workflow {
     ROUNDTRIP_CHECK.out.report
         .map { reg, f -> f }
         .collectFile(name: 'roundtrip_all.tsv', keepHeader: true, skip: 1, storeDir: "${params.outdir}/summary")
+    VALIDATE_PHENOPACKETS.out.report
+        .map { reg, f -> f }
+        .collectFile(name: 'validation_all.tsv', keepHeader: true, skip: 1, storeDir: "${params.outdir}/summary")
 
     LINKML_MAP.out.versions.mix(BUILD_PHENOPACKETS.out.versions)
         .map { f -> f.text }

@@ -1,0 +1,239 @@
+synonym	hpo_id	scope
+Abnormal EEG	HP:0002353	exact
+Abnormal electroencephalogram	HP:0002353	exact
+Abnormal gait	HP:0001288	exact
+Abnormal walk	HP:0001288	exact
+Abnormally small cranium	HP:0000252	exact
+Abnormally small head	HP:0000252	broad
+Abnormally small skull	HP:0000252	exact
+Absence of spontaneous respiration	HP:0002104	exact
+Absent speech development	HP:0001344	exact
+Acid reflux	HP:0002020	exact
+Acid reflux disease	HP:0002020	exact
+Age of onset	HP:0003674	exact
+Age symptoms begin	HP:0003674	exact
+Aggression	HP:0000718	exact
+Aggressiveness	HP:0000718	exact
+Anaemia	HP:0001903	exact
+Anxiety disease	HP:0000739	related
+Anxiousness	HP:0000739	exact
+Apneic episodes	HP:0002104	exact
+Apnoea	HP:0002104	exact
+Behavioral abnormality	HP:0000708	exact
+Behavioral changes	HP:0000708	exact
+Behavioral disorders	HP:0000708	exact
+Behavioral disturbances	HP:0000708	exact
+Behavioral problems	HP:0000708	exact
+Behavioral symptoms	HP:0000708	exact
+Behavioral/psychiatric abnormalities	HP:0000708	exact
+Behavioural abnormality	HP:0000708	exact
+Behavioural changes	HP:0000708	exact
+Behavioural disorders	HP:0000708	exact
+Behavioural disturbances	HP:0000708	exact
+Behavioural problems	HP:0000708	exact
+Behavioural symptoms	HP:0000708	exact
+Behavioural/Psychiatric abnormality	HP:0000708	exact
+Central hypotonia	HP:0001252	narrow
+Cerebellar ataxia	HP:0001251	exact
+Cobb angle greater than ten degrees	HP:0002650	related
+Cognitive delay	HP:0001263	related
+Costiveness	HP:0002019	exact
+Cross-eyed	HP:0000486	exact
+Deafness	HP:0000365	exact
+Decreased body height	HP:0004322	exact
+Decreased circumference of cranium	HP:0000252	exact
+Decreased haemoglobin	HP:0001903	related
+Decreased hemoglobin	HP:0001903	related
+Decreased oral intake	HP:0011968	exact
+Decreased size of cranium	HP:0000252	exact
+Decreased size of head	HP:0000252	broad
+Decreased size of skull	HP:0000252	exact
+Deficiency of speech development	HP:0000750	exact
+Delay in development of motor milestones	HP:0001270	exact
+Delay in motor development	HP:0001270	exact
+Delayed cognitive development	HP:0001263	exact
+Delayed development	HP:0001263	exact
+Delayed development of motor milestones	HP:0001270	exact
+Delayed developmental milestones	HP:0001263	exact
+Delayed early motor milestones	HP:0001270	exact
+Delayed intellectual development	HP:0001263	exact
+Delayed language development	HP:0000750	exact
+Delayed milestones	HP:0001263	exact
+Delayed motor development	HP:0001270	exact
+Delayed motor milestones	HP:0001270	exact
+Delayed psychomotor development	HP:0001263	exact
+Delayed speech	HP:0000750	exact
+Delayed speech acquisition	HP:0000750	exact
+Delayed speech development	HP:0000750	exact
+Developmental delay	HP:0001263	exact
+Developmental delay in early childhood	HP:0001263	exact
+Developmental delay, global	HP:0001263	exact
+Developmental retardation	HP:0001263	exact
+Difficulty in walking	HP:0001288	exact
+Difficulty sleeping	HP:0002360	exact
+Dribbling	HP:0002307	exact
+Dull intelligence	HP:0001249	related
+Dyschezia	HP:0002019	exact
+EEG abnormalities	HP:0002353	exact
+Early fetal onset	HP:0034199	exact
+Early foetal onset	HP:0034199	exact
+Electroencephalogram abnormal	HP:0002353	exact
+Electroencephalogram abnormalities	HP:0002353	exact
+Enlarged liver	HP:0002240	exact
+Epilepsy	HP:0001250	related
+Epileptic seizure	HP:0001250	exact
+Excessive orbital separation	HP:0000316	exact
+Excessive, persistent worry and fear	HP:0000739	exact
+FTT	HP:0001508	exact
+Faltering weight	HP:0001508	exact
+Feeding problems	HP:0011968	exact
+Foetal onset	HP:0011461	exact
+Frequent otitis media	HP:0000403	exact
+GDD	HP:0001263	exact
+GERD	HP:0002020	exact
+GORD	HP:0002020	exact
+Gait abnormalities	HP:0001288	exact
+Gait difficulties	HP:0001288	exact
+Gait disturbances	HP:0001288	exact
+Gait instability	HP:0002317	exact
+Gastro-esophageal reflux	HP:0002020	exact
+Gastro-oesophageal reflux	HP:0002020	exact
+Gastroesophageal reflux disease	HP:0002020	exact
+Grinding teeth during sleep	HP:0003763	narrow
+Hand clasping	HP:0012171	exact
+Hand-wringing	HP:0012171	exact
+Handwringing	HP:0012171	exact
+Hearing defect	HP:0000365	exact
+Hearing loss	HP:0000365	related
+Heartburn	HP:0002020	exact
+Height less than 3rd percentile	HP:0004322	exact
+Hypacusis	HP:0000365	exact
+Hyperactive behavior	HP:0000752	exact
+Hyperactive behaviour	HP:0000752	exact
+Hyperkinetic disorder	HP:0000752	exact
+Hypoacusis	HP:0000365	related
+Impaired gait	HP:0001288	exact
+Impaired speech and language development	HP:0000750	exact
+Impaired speech development	HP:0000750	exact
+Increased distance between eye sockets	HP:0000316	exact
+Increased distance between eyes	HP:0000316	exact
+Increased interpupillary distance	HP:0000316	exact
+Intrauterine onset	HP:0030674	exact
+Involuntary muscle contractions	HP:0004305	exact
+Lack of language development	HP:0001344	exact
+Lack of psychomotor development	HP:0001263	exact
+Lack of speech	HP:0001344	exact
+Language delay	HP:0000750	exact
+Language delayed	HP:0000750	exact
+Language development deficit	HP:0000750	exact
+Late-onset speech development	HP:0000750	exact
+Locomotor delay	HP:0001270	exact
+Loss of acquired milestones	HP:0002376	exact
+Loss of developmental milestones	HP:0002376	exact
+Loss of milestones	HP:0002376	exact
+Low intelligence	HP:0001249	related
+Low muscle tone	HP:0001252	exact
+Low number of red blood cells or haemoglobin	HP:0001903	exact
+Low number of red blood cells or hemoglobin	HP:0001903	exact
+Low or weak muscle tone	HP:0001252	exact
+Mental and motor retardation	HP:0001263	related
+Mental deficiency	HP:0001249	exact
+Mental deterioration in childhood	HP:0002376	exact
+Mental retardation	HP:0001249	exact
+Mental retardation, nonspecific	HP:0001249	exact
+Mental-retardation	HP:0001249	exact
+More active than typical	HP:0000752	exact
+Motor and developmental delay	HP:0001263	exact
+Motor developmental delay	HP:0001270	exact
+Motor developmental milestones not achieved	HP:0001270	exact
+Motor retardation	HP:0001270	exact
+Motormental retardation	HP:0001263	exact
+Multiple episodes of otitis media	HP:0000403	exact
+Muscle hypotonia	HP:0001252	exact
+Muscular hypotonia	HP:0001252	exact
+Neurodevelopmental regression	HP:0002376	exact
+No development of motor milestones	HP:0001270	related
+No speech development	HP:0001344	exact
+No speech or language development	HP:0001344	exact
+Nonprogressive intellectual disability	HP:0001249	exact
+Nonprogressive mental retardation	HP:0001249	exact
+Nonverbal	HP:0001344	exact
+Ocular hypertelorism	HP:0000316	exact
+Onset at birth	HP:0003577	exact
+Onset before adulthood	HP:0410280	exact
+Onset in adulthood	HP:0003581	exact
+Onset in early adulthood	HP:0003581	exact
+Onset in first weeks of life	HP:0003623	exact
+Onset in first year of life	HP:0003593	exact
+Onset in infancy	HP:0003593	exact
+Onset in neonatal period	HP:0003623	exact
+Onset in utero	HP:0030674	exact
+Otitis media, recurrent	HP:0000403	exact
+Paediatric onset	HP:0410280	exact
+Peripheral hypotonia	HP:0001252	narrow
+Poor feeding	HP:0011968	exact
+Poor language development	HP:0000750	exact
+Poor school performance	HP:0001249	related
+Poor speech acquisition	HP:0000750	related
+Poor speech development	HP:0000750	related
+Poor weight gain	HP:0001508	related
+Postnatal failure to thrive	HP:0001508	exact
+Prenatal onset	HP:0030674	exact
+Psychiatric disorders	HP:0000708	exact
+Psychiatric disturbances	HP:0000708	exact
+Psychomotor delay	HP:0001263	exact
+Psychomotor development deficiency	HP:0001263	exact
+Psychomotor development failure	HP:0001263	exact
+Psychomotor developmental delay	HP:0001263	exact
+Psychomotor regression	HP:0002376	exact
+Psychomotor regression beginning in infancy	HP:0002376	exact
+Psychomotor regression in infants	HP:0002376	exact
+Psychomotor regression, progressive	HP:0002376	exact
+Recurrent episodes of otitis media	HP:0000403	exact
+Recurrent middle ear infection	HP:0000403	exact
+Reduced head circumference	HP:0000252	exact
+Retarded development	HP:0001263	exact
+Retarded mental development	HP:0001263	exact
+Retarded motor development	HP:0001270	exact
+Retarded psychomotor development	HP:0001263	exact
+Seizures	HP:0001250	exact
+Sialorrhea	HP:0002307	exact
+Signs and symptoms begin before 15 years of age	HP:0003621	exact
+Sleep abnormality	HP:0002360	exact
+Sleep disturbances	HP:0002360	exact
+Sleep dysfunction	HP:0002360	exact
+Sleep-wake disturbance	HP:0002360	exact
+Slow development of motor milestones	HP:0001270	exact
+Small head	HP:0000252	broad
+Small head circumference	HP:0000252	exact
+Small skull	HP:0000252	broad
+Small stature	HP:0004322	exact
+Speech and language delay	HP:0000750	exact
+Speech and language difficulties	HP:0000750	exact
+Speech delay	HP:0000750	exact
+Speech difficulties	HP:0000750	related
+Squint	HP:0000486	exact
+Squint eyes	HP:0000486	exact
+Stature below 3rd percentile	HP:0004322	exact
+Susceptibility to otitis media	HP:0000403	exact
+Symptoms begin in adulthood	HP:0003581	exact
+Symptoms begin in childhood	HP:0011463	exact
+Symptoms present at birth	HP:0003577	exact
+Teeth grinding	HP:0003763	exact
+Tiptoe gait	HP:0030051	exact
+Tired	HP:0012378	exact
+Tiredness	HP:0012378	exact
+Toe walking	HP:0030051	exact
+Tremors	HP:0001337	exact
+Trouble sleeping	HP:0002360	exact
+Undergrowth	HP:0001508	broad
+Unsteady walk	HP:0002317	exact
+Walking disability	HP:0001288	exact
+Walking on tiptoes	HP:0030051	exact
+Weight faltering	HP:0001508	exact
+Wide-set eyes	HP:0000316	exact
+Widely spaced eyes	HP:0000316	exact
+Widened interpupillary distance	HP:0000316	exact
+physical aggression	HP:0000718	related
+small calvarium	HP:0000252	narrow
+small cranium	HP:0000252	exact
