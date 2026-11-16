@@ -1,0 +1,290 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "arrayShape": "cr:arrayShape",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "containedIn": "cr:containedIn",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "description": {
+      "@container": "@language"
+    },
+    "equivalentProperty": "cr:equivalentProperty",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isArray": "cr:isArray",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "name": {
+      "@container": "@language"
+    },
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "rddc": "https://w3id.org/rddc/vocab/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "additionalType": {
+      "@id": "sc:additionalType",
+      "@type": "@id"
+    },
+    "batchId": "rddc:batchId",
+    "bucket": "rddc:bucket",
+    "bundleType": "rddc:bundleType",
+    "cdmEtlReference": "rddc:cdmEtlReference",
+    "cdmHolder": "rddc:cdmHolder",
+    "cdmReleaseDate": "rddc:cdmReleaseDate",
+    "cdmSource": "rddc:cdmSource",
+    "cdmSourceAbbreviation": "rddc:cdmSourceAbbreviation",
+    "cdmSourceName": "rddc:cdmSourceName",
+    "cdmTable": "rddc:cdmTable",
+    "compression": "rddc:compression",
+    "confidence": "rddc:confidence",
+    "confirmed": "rddc:confirmed",
+    "consentRef": "rddc:consentRef",
+    "containsBiometricIdentifiers": "rddc:containsBiometricIdentifiers",
+    "containsDates": "rddc:containsDates",
+    "containsFreeText": "rddc:containsFreeText",
+    "containsZipCodes": "rddc:containsZipCodes",
+    "contributorId": "rddc:contributorId",
+    "diagnosisCodeSystems": "rddc:diagnosisCodeSystems",
+    "directIdentifiersRemoved": "rddc:directIdentifiersRemoved",
+    "documentType": "rddc:documentType",
+    "excludes": "cr:excludes",
+    "exportTime": "rddc:exportTime",
+    "fieldPath": "rddc:fieldPath",
+    "formDefinition": "rddc:formDefinition",
+    "formVersion": "rddc:formVersion",
+    "idSystem": "rddc:idSystem",
+    "identifierSystemUri": "rddc:identifierSystemUri",
+    "indexOf": "rddc:indexOf",
+    "interaction": "rddc:interaction",
+    "issuedAt": "rddc:issuedAt",
+    "issuedBy": "rddc:issuedBy",
+    "method": "rddc:method",
+    "modalities": "rddc:modalities",
+    "notes": "rddc:notes",
+    "noticeRef": "rddc:noticeRef",
+    "origin": "rddc:origin",
+    "pairedWith": "rddc:pairedWith",
+    "platform": "rddc:platform",
+    "prefixPattern": "rddc:prefixPattern",
+    "processingHints": "rddc:processingHints",
+    "recordCount": "rddc:recordCount",
+    "referenceGenome": "rddc:referenceGenome",
+    "region": "rddc:region",
+    "registerVersion": "rddc:registerVersion",
+    "reportDocuments": "rddc:reportDocuments",
+    "resourceType": "rddc:resourceType",
+    "sensitivity": "rddc:sensitivity",
+    "sequencingPlatform": "rddc:sequencingPlatform",
+    "software": "rddc:software",
+    "sourceId": "rddc:sourceId",
+    "sourceReleaseDate": "rddc:sourceReleaseDate",
+    "subjectCount": "rddc:subjectCount",
+    "subjectId": "rddc:subjectId",
+    "subjectIds": "rddc:subjectIds",
+    "subjects": "rddc:subjects",
+    "synthetic": "rddc:synthetic",
+    "valueOrigins": "rddc:valueOrigins",
+    "vocabularyVersion": "rddc:vocabularyVersion",
+    "wasAttributedTo": "prov:wasAttributedTo",
+    "wasDerivedFrom": "prov:wasDerivedFrom"
+  },
+  "@id": "urn:uuid:3c9a7e10-0001-4000-8000-000000000001",
+  "@type": "sc:Dataset",
+  "conformsTo": [
+    "http://mlcommons.org/croissant/1.1",
+    "https://w3id.org/rddc/sidecar/0.1.0"
+  ],
+  "name": "src-nordlike-01/2026-11-export",
+  "url": "s3://rddc-deposit-test/src-nordlike-01/2026-11-export/",
+  "dateCreated": "2026-11-16T00:00:00Z",
+  "wasAttributedTo": {
+    "@type": "sc:SoftwareApplication",
+    "name": "make_sidecars.py",
+    "softwareVersion": "0.1.0"
+  },
+  "contributorId": "test-site",
+  "sourceId": "src-nordlike-01",
+  "batchId": "2026-11-export",
+  "interaction": "add",
+  "sensitivity": {
+    "directIdentifiersRemoved": true,
+    "synthetic": true,
+    "containsDates": true,
+    "containsZipCodes": false,
+    "containsFreeText": true,
+    "containsBiometricIdentifiers": false
+  },
+  "description": "Synthetic NORD-like registry export.",
+  "subjects": [
+    {
+      "subjectId": "NL-0000",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0001",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0002",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0003",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0004",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0005",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0006",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0007",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0008",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0009",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0010",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0011",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0012",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0013",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0014",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0015",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0016",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0017",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0018",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0019",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0020",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0021",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0022",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "NL-0023",
+      "idSystem": "contributor"
+    }
+  ],
+  "distribution": [
+    {
+      "@id": "urn:uuid:3c9a7e10-0001-4000-8000-000000000011",
+      "@type": "cr:FileObject",
+      "additionalType": "rddc:TabularFile",
+      "name": "export.json",
+      "contentUrl": "export.json",
+      "contentSize": "71509 B",
+      "encodingFormat": "application/json",
+      "sha256": "056a20e3283967f182de60039c5b1fd6af252523e14923b8c923123eada46e49",
+      "md5": "4a98271622cd67743f9db10af5067cd2",
+      "subjectIds": [
+        "NL-0000",
+        "NL-0001",
+        "NL-0002",
+        "NL-0003",
+        "NL-0004",
+        "NL-0005",
+        "NL-0006",
+        "NL-0007",
+        "NL-0008",
+        "NL-0009",
+        "NL-0010",
+        "NL-0011",
+        "NL-0012",
+        "NL-0013",
+        "NL-0014",
+        "NL-0015",
+        "NL-0016",
+        "NL-0017",
+        "NL-0018",
+        "NL-0019",
+        "NL-0020",
+        "NL-0021",
+        "NL-0022",
+        "NL-0023"
+      ]
+    }
+  ]
+}

@@ -2,6 +2,24 @@
 
 Findings are recorded here as they are made, newest first. Dates are when the work was done.
 
+## Unreleased (2026-11-16) batch sidecar as input
+
+The input is the batch's `_sidecar.json` (`--sidecar`), not a samplesheet, as in
+rddc-genomics-workflows and rddc-fhir-to-omop. Sources are registered in
+`mappings/sources.yaml` by `sourceId`; each test registry is one batch with its own sidecar.
+
+Findings:
+
+- **Mappings belong to the source, not the batch.** The sidecar says what the files are
+  (class, format, subjects, the dictionary a form export follows); the LinkML schema and
+  transform are set up once per source, so they live in a registry keyed by `sourceId`.
+- **rddc-sidecar cannot describe registry batches yet.** Its vendored model has no
+  `IntakeFormFile`/`formDefinition`, it classes the JSON export as `GenericFile`, and it
+  cannot infer participant IDs as subjects; the fixture sidecars are written by
+  `tests/make_sidecars.py` and validated against rddc-model's schema instead.
+- **Subjects reconcile.** All 24 participants of each registry match the sidecar's
+  subjects; a dropped or unknown ID fails the run.
+
 ## 0.2.0 (2026-11-12) release-backed vocabulary and validation
 
 `make vocab` builds HPO, Mondo and HGNC tables from releases; a Python validator runs in

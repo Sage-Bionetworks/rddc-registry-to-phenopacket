@@ -1,0 +1,304 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "arrayShape": "cr:arrayShape",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "containedIn": "cr:containedIn",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "description": {
+      "@container": "@language"
+    },
+    "equivalentProperty": "cr:equivalentProperty",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isArray": "cr:isArray",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "name": {
+      "@container": "@language"
+    },
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "rddc": "https://w3id.org/rddc/vocab/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "additionalType": {
+      "@id": "sc:additionalType",
+      "@type": "@id"
+    },
+    "batchId": "rddc:batchId",
+    "bucket": "rddc:bucket",
+    "bundleType": "rddc:bundleType",
+    "cdmEtlReference": "rddc:cdmEtlReference",
+    "cdmHolder": "rddc:cdmHolder",
+    "cdmReleaseDate": "rddc:cdmReleaseDate",
+    "cdmSource": "rddc:cdmSource",
+    "cdmSourceAbbreviation": "rddc:cdmSourceAbbreviation",
+    "cdmSourceName": "rddc:cdmSourceName",
+    "cdmTable": "rddc:cdmTable",
+    "compression": "rddc:compression",
+    "confidence": "rddc:confidence",
+    "confirmed": "rddc:confirmed",
+    "consentRef": "rddc:consentRef",
+    "containsBiometricIdentifiers": "rddc:containsBiometricIdentifiers",
+    "containsDates": "rddc:containsDates",
+    "containsFreeText": "rddc:containsFreeText",
+    "containsZipCodes": "rddc:containsZipCodes",
+    "contributorId": "rddc:contributorId",
+    "diagnosisCodeSystems": "rddc:diagnosisCodeSystems",
+    "directIdentifiersRemoved": "rddc:directIdentifiersRemoved",
+    "documentType": "rddc:documentType",
+    "excludes": "cr:excludes",
+    "exportTime": "rddc:exportTime",
+    "fieldPath": "rddc:fieldPath",
+    "formDefinition": "rddc:formDefinition",
+    "formVersion": "rddc:formVersion",
+    "idSystem": "rddc:idSystem",
+    "identifierSystemUri": "rddc:identifierSystemUri",
+    "indexOf": "rddc:indexOf",
+    "interaction": "rddc:interaction",
+    "issuedAt": "rddc:issuedAt",
+    "issuedBy": "rddc:issuedBy",
+    "method": "rddc:method",
+    "modalities": "rddc:modalities",
+    "notes": "rddc:notes",
+    "noticeRef": "rddc:noticeRef",
+    "origin": "rddc:origin",
+    "pairedWith": "rddc:pairedWith",
+    "platform": "rddc:platform",
+    "prefixPattern": "rddc:prefixPattern",
+    "processingHints": "rddc:processingHints",
+    "recordCount": "rddc:recordCount",
+    "referenceGenome": "rddc:referenceGenome",
+    "region": "rddc:region",
+    "registerVersion": "rddc:registerVersion",
+    "reportDocuments": "rddc:reportDocuments",
+    "resourceType": "rddc:resourceType",
+    "sensitivity": "rddc:sensitivity",
+    "sequencingPlatform": "rddc:sequencingPlatform",
+    "software": "rddc:software",
+    "sourceId": "rddc:sourceId",
+    "sourceReleaseDate": "rddc:sourceReleaseDate",
+    "subjectCount": "rddc:subjectCount",
+    "subjectId": "rddc:subjectId",
+    "subjectIds": "rddc:subjectIds",
+    "subjects": "rddc:subjects",
+    "synthetic": "rddc:synthetic",
+    "valueOrigins": "rddc:valueOrigins",
+    "vocabularyVersion": "rddc:vocabularyVersion",
+    "wasAttributedTo": "prov:wasAttributedTo",
+    "wasDerivedFrom": "prov:wasDerivedFrom"
+  },
+  "@id": "urn:uuid:3c9a7e10-0002-4000-8000-000000000001",
+  "@type": "sc:Dataset",
+  "conformsTo": [
+    "http://mlcommons.org/croissant/1.1",
+    "https://w3id.org/rddc/sidecar/0.1.0"
+  ],
+  "name": "src-redcaplike-01/2026-11-export",
+  "url": "s3://rddc-deposit-test/src-redcaplike-01/2026-11-export/",
+  "dateCreated": "2026-11-16T00:00:00Z",
+  "wasAttributedTo": {
+    "@type": "sc:SoftwareApplication",
+    "name": "make_sidecars.py",
+    "softwareVersion": "0.1.0"
+  },
+  "contributorId": "test-site",
+  "sourceId": "src-redcaplike-01",
+  "batchId": "2026-11-export",
+  "interaction": "add",
+  "sensitivity": {
+    "directIdentifiersRemoved": true,
+    "synthetic": true,
+    "containsDates": true,
+    "containsZipCodes": false,
+    "containsFreeText": true,
+    "containsBiometricIdentifiers": false
+  },
+  "description": "Synthetic REDCap-like registry export.",
+  "subjects": [
+    {
+      "subjectId": "RC00000",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00001",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00002",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00003",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00004",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00005",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00006",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00007",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00008",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00009",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00010",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00011",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00012",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00013",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00014",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00015",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00016",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00017",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00018",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00019",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00020",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00021",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00022",
+      "idSystem": "contributor"
+    },
+    {
+      "subjectId": "RC00023",
+      "idSystem": "contributor"
+    }
+  ],
+  "distribution": [
+    {
+      "@id": "urn:uuid:3c9a7e10-0002-4000-8000-000000000011",
+      "@type": "cr:FileObject",
+      "additionalType": "rddc:IntakeFormFile",
+      "name": "Row.csv",
+      "contentUrl": "Row.csv",
+      "contentSize": "6114 B",
+      "encodingFormat": "text/csv",
+      "sha256": "d1607a5b9280f9d33769c54853e8b2d110d13aec84ca17ef49feb2045c6ec477",
+      "md5": "560acec2b585a16a1228da27f4d1d419",
+      "subjectIds": [
+        "RC00000",
+        "RC00001",
+        "RC00002",
+        "RC00003",
+        "RC00004",
+        "RC00005",
+        "RC00006",
+        "RC00007",
+        "RC00008",
+        "RC00009",
+        "RC00010",
+        "RC00011",
+        "RC00012",
+        "RC00013",
+        "RC00014",
+        "RC00015",
+        "RC00016",
+        "RC00017",
+        "RC00018",
+        "RC00019",
+        "RC00020",
+        "RC00021",
+        "RC00022",
+        "RC00023"
+      ],
+      "formDefinition": {
+        "@id": "urn:uuid:3c9a7e10-0002-4000-8000-000000000012"
+      }
+    },
+    {
+      "@id": "urn:uuid:3c9a7e10-0002-4000-8000-000000000012",
+      "@type": "cr:FileObject",
+      "additionalType": "rddc:DocumentationFile",
+      "name": "dictionary.csv",
+      "contentUrl": "dictionary.csv",
+      "contentSize": "4194 B",
+      "encodingFormat": "text/csv",
+      "sha256": "41b670401968c64479725a219ad7473e51ff790ea00e008b38e762c81758a966",
+      "md5": "26aa9767ee0ba0db92cad9822e5bee01"
+    }
+  ]
+}

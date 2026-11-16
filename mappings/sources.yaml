@@ -1,0 +1,32 @@
+# Registered registry sources: how a batch's export maps to RegistryRecord.
+#
+# A batch's sidecar names its source (sourceId); the mapping is set up once per source when it
+# is onboarded, not per batch. For each source:
+#   registry       short name: output paths, survey lookups (assets/survey_lookups/<registry>_*)
+#   file           which file of the batch is the export: its sidecar class and encodingFormat;
+#                  exactly one file must match
+#   format         json (one hierarchical document) | csv (one row per participant)
+#   source_schema  LinkML schema describing the export (schema/sources/)
+#   transform      LinkML-Map specification to RegistryRecord (mappings/)
+#   source_type    class in source_schema that the export file instantiates
+# Paths are relative to the repository root.
+
+src-nordlike-01:
+  registry: nordlike
+  file:
+    additionalType: TabularFile
+    encodingFormat: application/json
+  format: json
+  source_schema: schema/sources/nordlike_export.yaml
+  transform: mappings/nordlike_to_record.transform.yaml
+  source_type: Export
+
+src-redcaplike-01:
+  registry: redcaplike
+  file:
+    additionalType: IntakeFormFile
+    encodingFormat: text/csv
+  format: csv
+  source_schema: schema/sources/redcaplike_wide.yaml
+  transform: mappings/redcaplike_to_record.transform.yaml
+  source_type: Row

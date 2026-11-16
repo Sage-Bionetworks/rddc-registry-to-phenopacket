@@ -18,5 +18,19 @@ for R in nordlike redcaplike; do
   bin/build_phenopackets.py --resolved "$OUT/$R.resolved.jsonl" --assets assets --outdir "$OUT/$R"
   bin/roundtrip_check.py --truth tests/data/truth.jsonl --registry "$R" --phenopackets "$OUT/$R/phenopackets" \
     --unmapped "$OUT/$R.unmapped.tsv" --out "$OUT/$R.roundtrip.tsv" --strict
+  # The batch sidecar's subjects (idSystem contributor) must match the participants one to one.
+  python3 -c "import json,sys; print('\n'.join(s['subjectId'] for s in json.load(open(sys.argv[1]))['subjects']))" \
+    "tests/data/$R/_sidecar.json" > "$OUT/$R.sidecar_subjects.txt"
+  bin/reconcile_subjects.py --records "$OUT/$R.resolved.jsonl" --subjects "$OUT/$R.sidecar_subjects.txt" \
+    --out "$OUT/$R.subjects.tsv" --strict > /dev/null
 done
-echo "OK: both registries round-trip; outputs in $OUT"
+
+# A subject list that drops one participant and adds an unknown one must fail.
+{ tail -n +2 "$OUT/nordlike.sidecar_subjects.txt"; echo "NL-9999"; } > "$OUT/bad_subjects.txt"
+if bin/reconcile_subjects.py --records "$OUT/nordlike.resolved.jsonl" --subjects "$OUT/bad_subjects.txt" \
+     --out "$OUT/bad.subjects.tsv" --strict > /dev/null 2>&1; then
+  echo "FAIL: mismatched subjects were not detected"; exit 1
+fi
+grep -q $'^records_not_in_sidecar\t1\tfail$' "$OUT/bad.subjects.tsv"
+grep -q $'^sidecar_subjects_without_record\t1\tfail$' "$OUT/bad.subjects.tsv"
+echo "OK: both registries round-trip and reconcile with their sidecars; outputs in $OUT"

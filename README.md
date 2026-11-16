@@ -6,6 +6,10 @@ one-row-per-participant table with a data dictionary, mapped with
 built into GA4GH Phenopackets v2. The point is to find out what one target can absorb from
 two mapping styles, and to make visible what it cannot.
 
+The input is a deposited batch described by its Croissant sidecar (`_sidecar.json`,
+[rddc-model](https://github.com/Sage-Bionetworks/rddc-model)), as for the other RDDC
+pipelines; see [Input](#input-the-batch-sidecar).
+
 Status: scaffold, runs end to end on synthetic fixtures. See [What is and is not verified](#what-is-and-is-not-verified).
 
 ## Layout
@@ -15,6 +19,7 @@ schema/registry_record.yaml       intermediate schema (target of every mapping);
 schema/sources/                   one LinkML schema per registry export shape
   nordlike_export.yaml              hierarchical JSON, hand-written from the inferred export shape
   redcaplike_wide.yaml              wide table, GENERATED from the data dictionary by bin/gen_wide_spec.py
+mappings/sources.yaml             registered sources: per sidecar sourceId, which file is the export and how it maps
 mappings/                         LinkML-Map specifications, one per registry
   nordlike_to_record.transform.yaml   hand-curated, class for class
   redcaplike_to_record.transform.yaml GENERATED from the dictionary's curated rddc_target column
@@ -25,8 +30,12 @@ bin/                              the stages (also on PATH inside Nextflow proce
   crosswalk.py                      codes and texts -> HPO / MONDO / HGNC / RxNorm, with an unmapped report
   build_phenopackets.py             resolved records -> phenopacket + extras per participant
   roundtrip_check.py                phenopackets vs ground truth
-main.nf, modules/local/           Nextflow pipeline: LINKML_MAP -> CROSSWALK -> BUILD_PHENOPACKETS -> [VALIDATE] -> ROUNDTRIP_CHECK
-tests/                            samplesheet, fixtures (tests/data), tests/run_tests.sh (stages without Nextflow)
+  reconcile_subjects.py             the export's participants vs the sidecar's subjects
+main.nf, modules/local/           Nextflow pipeline: SIDECAR_INTAKE -> LINKML_MAP -> CROSSWALK -> RECONCILE_SUBJECTS,
+                                  BUILD_PHENOPACKETS -> [VALIDATE] -> ROUNDTRIP_CHECK
+subworkflows/local/sidecar_intake vendored from rddc-genomics-workflows (shared sidecar intake)
+tests/                            fixtures: one batch per registry with its _sidecar.json (tests/data/<registry>),
+                                  truth, make_sidecars.py, run_tests.sh (stages without Nextflow)
 ```
 
 ## Quick start
@@ -34,16 +43,46 @@ tests/                            samplesheet, fixtures (tests/data), tests/run_
 ```bash
 make tools      # uv virtualenv (.venv), nextflow and phenopacket-tools into .tools/
 make test       # stages on the fixtures, strict round trip, no Nextflow   (~20 s)
-make nf-test    # full pipeline on the committed vocabulary subset, results in results/test
+make nf-test    # full pipeline on each test batch (committed vocabulary subset), results in results/test/<registry>
+make nf-test-errors # a wrong checksum on the export stops the run after writing intake.tsv
+make sidecars   # rewrite the test batches' sidecars, validated against ../rddc-model
 make vocab      # download HPO, Mondo SSSOM and HGNC releases, build vocab/tables with OAK (~5 s after download)
 make nf-full    # pipeline on the full releases with OAK graph checks in validation (~45 s)
-make validate   # phenopacket-tools (Java) validation of results/test; see verification notes
+make validate   # phenopacket-tools (Java) validation of results/test/*; see verification notes
 make lint       # schema lint and both mapping specs validated against source and target
 make data spec  # regenerate fixtures, recompile the wide-table schema and spec
 make assets-subset  # re-derive the committed assets/ vocabulary subset as a slice of the release
 ```
 
-Outputs per registry in `results/test/<registry>/`:
+One run per batch:
+
+```bash
+.tools/nextflow run . -profile local --sidecar /path/to/batch/_sidecar.json --outdir results/<batch>
+```
+
+## Input: the batch sidecar
+
+- **Files.** `SIDECAR_INTAKE` (vendored from rddc-genomics-workflows, shared with the other
+  pipelines) resolves each `contentUrl` against the sidecar's location, stages the file and
+  checks md5 (and sha256). `intake/intake.tsv` lists every entry with its route: `map` (the
+  export), `documentation` (its data dictionary), `skipped`, `rejected` (with the reason).
+- **Which mapping.** The sidecar's `sourceId` selects the source's registered mapping in
+  `mappings/sources.yaml` (`--sources`): the export's class and `encodingFormat`, its source
+  schema, LinkML-Map transform and source type, and the registry name. Mappings belong to a
+  source, set up once at onboarding, so they are not in the sidecar. The batch must have
+  exactly one usable file matching the export; otherwise the run stops after writing
+  `intake.tsv` (`CHECK_EXPORT`), e.g. when the export failed its checksum.
+- **Subjects.** The sidecar's subjects (idSystem `contributor`) are the registry's
+  participant IDs. `RECONCILE_SUBJECTS` checks them one to one against the records
+  (`<registry>.subjects.tsv`); a mismatch fails the run under `--strict_validation` (default).
+- **Test fixtures.** `tests/data/nordlike/` (a `TabularFile`, JSON) and
+  `tests/data/redcaplike/` (an `IntakeFormFile` whose `formDefinition` is its data
+  dictionary, a `DocumentationFile`) are one batch each. `tests/make_sidecars.py` writes their
+  sidecars (`make sidecars`), validated against rddc-model's JSON Schema: rddc-sidecar 0.1.0
+  vendors an older model without `IntakeFormFile`. `--truth` is the generator's ground truth
+  for the round-trip check; it is not part of a deposit.
+
+Outputs per batch in `<outdir>/`, and per registry in `<outdir>/<registry>/`:
 
 | File | What |
 | --- | --- |
@@ -55,8 +94,10 @@ Outputs per registry in `results/test/<registry>/`:
 | `build_report.tsv` | per-participant counts: features, diseases, interpretations, actions, files, unknowns, unresolved, unrepresented |
 | `<registry>.validation.tsv` | validator findings: schema, required metadata, resource coverage, HPO existence, obsoletion, label drift, onset class, and with `--hp_json` ancestor redundancy and conflicts |
 | `<registry>.roundtrip.tsv` | pass or FAIL per participant against the generator's truth (fixtures only) |
+| `<registry>.subjects.tsv` | the sidecar's subjects vs the records: counts and ok/fail |
+| `intake/intake.tsv`, `intake/batch.json` | (in `<outdir>/`) every sidecar entry with its route and reason; the batch header |
 
-`results/test/summary/` concatenates the unmapped, build and round-trip reports across registries.
+`<outdir>/summary/` holds the unmapped, build, validation and round-trip reports of the run.
 
 ## How the two shapes map
 
@@ -168,7 +209,8 @@ through the curated lexicon only.
 2. Write (or generate) the mapping in `mappings/`. Validate it:
    `linkml-map validate-spec --strict --source-schema ... --target-schema schema/registry_record.yaml ...`
 3. If checklist items carry no codes, add `assets/survey_lookups/<registry>_<instrument>_<version>.tsv`.
-4. Add a samplesheet row: `registry,format,data,source_schema,transform,source_type,truth`.
+4. Register the source in `mappings/sources.yaml` under its `sourceId`: registry name, the
+   export's sidecar class and `encodingFormat`, format, source schema, transform and source type.
 
 ## Next steps, in order
 
