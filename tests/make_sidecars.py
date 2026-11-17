@@ -13,6 +13,10 @@ the intake rejection test.
 Usage (from the repo root; rerun after `make data`):
     python3 -I tests/make_sidecars.py --context ../rddc-model/examples/ccda_document_set.json \
         --schema ../rddc-model/schema/generated/rddc_sidecar.schema.json
+
+For another batch set (e.g. the demo in demo/n1000), give it its own batchId and @id base so it
+cannot collide with the fixtures:
+    ... --data demo/n1000 --batch-id 2026-11-demo-n1000 --id-base 3c9a7e11 --no-errors
 """
 
 import argparse
@@ -24,8 +28,11 @@ from pathlib import Path
 DATA = Path(__file__).resolve().parent / "data"
 
 
+ID_BASE = "3c9a7e10"  # first UUID group of the committed fixtures; give other batch sets their own
+
+
 def uuid(batch: int, n: int) -> str:
-    return f"urn:uuid:3c9a7e10-{batch:04d}-4000-8000-{n:012d}"
+    return f"urn:uuid:{ID_BASE}-{batch:04d}-4000-8000-{n:012d}"
 
 
 def file_object(batch_dir: Path, n: int, batch: int, key: str, cls: str, fmt: str, subjects, extra=None):
@@ -77,22 +84,34 @@ def sidecar(context, batch: int, source_id: str, batch_id: str, description: str
 
 
 def main():
+    global ID_BASE
     ap = argparse.ArgumentParser()
     ap.add_argument("--context", required=True, help="an rddc-model example sidecar; its @context is copied")
     ap.add_argument("--schema", help="rddc-model's generated sidecar JSON Schema; validate against it")
+    ap.add_argument("--data", type=Path, default=DATA,
+                    help="directory holding nordlike/ and redcaplike/ (default: tests/data)")
+    ap.add_argument("--batch-id", default="2026-11-export",
+                    help="batchId of both batches; distinct per batch set so names and URLs do not collide")
+    ap.add_argument("--id-base", default=ID_BASE,
+                    help="first group (8 hex digits) of every @id; distinct per batch set (default: the fixtures')")
+    ap.add_argument("--no-errors", action="store_true",
+                    help="skip nordlike/_sidecar.errors.json (only the intake rejection test needs it)")
     args = ap.parse_args()
+    if len(args.id_base) != 8 or any(c not in "0123456789abcdef" for c in args.id_base):
+        raise SystemExit("--id-base must be 8 lowercase hex digits")
+    ID_BASE = args.id_base
     context = json.load(open(args.context))["@context"]
 
-    nord = DATA / "nordlike"
+    nord = args.data / "nordlike"
     nord_ids = [p["participant_id"] for p in json.load(open(nord / "export.json"))["participants"]]
-    red = DATA / "redcaplike"
+    red = args.data / "redcaplike"
     with open(red / "Row.csv", newline="") as f:
         red_ids = [r["record_id"] for r in csv.DictReader(f)]
 
     docs = {
-        nord: sidecar(context, 1, "src-nordlike-01", "2026-11-export", "Synthetic NORD-like registry export.",
+        nord: sidecar(context, 1, "src-nordlike-01", args.batch_id, "Synthetic NORD-like registry export.",
                       nord_ids, [file_object(nord, 11, 1, "export.json", "TabularFile", "application/json", nord_ids)]),
-        red: sidecar(context, 2, "src-redcaplike-01", "2026-11-export", "Synthetic REDCap-like registry export.",
+        red: sidecar(context, 2, "src-redcaplike-01", args.batch_id, "Synthetic REDCap-like registry export.",
                      red_ids, [
                          file_object(red, 11, 2, "Row.csv", "IntakeFormFile", "text/csv", red_ids,
                                      {"formDefinition": {"@id": uuid(2, 12)}}),
@@ -115,6 +134,8 @@ def main():
         (batch_dir / "_sidecar.json").write_text(json.dumps(doc, indent=2) + "\n")
         print(f"wrote {batch_dir / '_sidecar.json'} ({len(doc['subjects'])} subjects)")
 
+    if args.no_errors:
+        return
     errors_doc = json.loads(json.dumps(docs[nord]))
     errors_doc["@id"] = uuid(1, 2)
     errors_doc["distribution"][0]["md5"] = "0" * 32
