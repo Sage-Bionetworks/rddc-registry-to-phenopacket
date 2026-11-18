@@ -212,6 +212,44 @@ the input dataset. The input dataset is one deposited batch. The form offers onl
 `strict_validation`; the vocabulary is the subset in `assets/`, and `--truth`, `--vocab`,
 `--hp_json` and `--pxf_jar` are not offered there yet.
 
+### TODO: finish the Cirro setup (handoff, 2026-11-17)
+
+Done: `.cirro/` is on `main`; the image is built, passes `make nf-test-docker` and is pushed as
+`ghcr.io/sage-bionetworks/rddc-registry-to-phenopacket:0.2.0.dev0`. On the development tenant
+(`rddc-dev.cirro.bio`, project `rddc-processing`) the data type `rddc-registry-batch` and the
+pipeline `rddc-registry-to-phenopacket` are registered, pinned to `main`, and both test batches
+are uploaded ("Registry test batch: nordlike (synthetic)" and "... redcaplike (synthetic)").
+No run has been started there.
+
+Still to do:
+
+- [ ] **Make the image public** (GitHub: the package's settings, Change visibility). Cirro
+      cannot pull it while it is private.
+- [ ] **First runs.** Run the pipeline on each uploaded batch. Compare `summary/*.tsv` and
+      `intake/intake.tsv` with a local `make nf-test` (expect 24 participants per batch and
+      no validation findings; there is no round-trip report, since `--truth` is not passed).
+      Note the wall time and how much of it is provisioning.
+- [ ] **Things a first run will show**, none checked in Cirro yet:
+  - the pre-run script finds `_sidecar.json` for this pipeline (the same script works for
+    rddc-fhir-to-omop);
+  - `mappings/`, `schema/` and `assets/` reach the tasks: they are read from the pipeline's
+    own checkout (`projectDir`), not from a dataset;
+  - the form's `strict_validation` value arrives as a boolean;
+  - all processes run in the one image, on 1 CPU and 2 GB (`process_single`).
+- [ ] **Failure case.** Upload a batch with `_sidecar.errors.json` renamed to `_sidecar.json`
+      (wrong checksum on the export) and confirm the run fails after writing `intake.tsv`,
+      as `make nf-test-errors` does locally.
+- [ ] **Offer the optional inputs in the form**, each as a dataset with its own data type:
+      full vocabulary tables (`--vocab`), `hp.json` (`--hp_json`), the phenopacket-tools jar
+      (`--pxf_jar`, still never run) and a truth file for synthetic batches (`--truth`).
+- [ ] **Image build workflow.** Add a GitHub Actions workflow that builds and pushes the image
+      when a release tag is pushed, and stops if the tag differs from the image named in
+      `nextflow.config`. rddc-fhir-to-omop has one to copy: `.github/workflows/image.yml`
+      there, with its "Releasing an image" README section. This image is about 850 MB and
+      takes a few minutes to build.
+- [ ] **Pin a release.** Once a tagged image exists, set `nextflow.config` to it and point
+      the Cirro registration at the tag instead of `main`.
+
 ## Adding a registry
 
 1. Put a LinkML schema of the export in `schema/sources/`. For a wide table, write the
