@@ -198,9 +198,19 @@ OLS, HGNC and RxNav on 2026-11-11.
 Not verified: the phenopacket-tools Java validator (`make validate`, and the optional
 `VALIDATE_PXF` process behind `--pxf_jar`) was downloaded but could not be run in the
 environment this was built in, so its command line is unexercised; the Python validator
-covers the same base checks and the HPO checks. The Dockerfile is written but the image has
-not been built. RxNorm has no licence-free bulk download, so medications still resolve
+covers the same base checks and the HPO checks. The image
+(`ghcr.io/sage-bionetworks/rddc-registry-to-phenopacket`, `make image`) is built and both
+test batches pass in it (`make nf-test-docker`). RxNorm has no licence-free bulk download, so medications still resolve
 through the curated lexicon only.
+
+## Running in Cirro
+
+`.cirro/` holds the run configuration for [Cirro](https://cirro.bio): the run form
+(`process-form.json`), how form values become pipeline parameters (`process-input.json`) and
+a pre-run script (`preprocess.py`) that sets `--sidecar` to the `_sidecar.json` at the root of
+the input dataset. The input dataset is one deposited batch. The form offers only
+`strict_validation`; the vocabulary is the subset in `assets/`, and `--truth`, `--vocab`,
+`--hp_json` and `--pxf_jar` are not offered there yet.
 
 ## Adding a registry
 
@@ -218,4 +228,4 @@ through the curated lexicon only.
    phenopacket-to-OMOP projection as a DuckDB module, reusing rddc-fhir-to-omop.
 2. Obtain one blank data dictionary and one test export from each real registry on the
    TA1 sheet and replace the inferred source schemas.
-3. Run the Java validator once in an environment that allows it, and build the image.
+3. Run the Java validator once in an environment that allows it.

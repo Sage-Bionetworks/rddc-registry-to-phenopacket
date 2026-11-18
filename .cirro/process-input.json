@@ -1,0 +1,4 @@
+{
+  "strict_validation": "$.dataset.params.strict_validation",
+  "outdir": "$.dataset.dataPath"
+}

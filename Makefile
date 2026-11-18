@@ -6,7 +6,7 @@ NEXTFLOW := $(CURDIR)/.tools/nextflow
 PXF_JAR  := $(CURDIR)/.tools/phenopacket-tools-cli-$(PXF_VERSION)/phenopacket-tools-cli-$(PXF_VERSION).jar
 PY := $(CURDIR)/.venv/bin/python
 
-.PHONY: tools venv data spec lint test nf-test nf-full nf-test-docker validate vocab assets-subset image clean sidecars nf-test-errors
+.PHONY: tools venv data spec lint test nf-test nf-full nf-test-docker validate vocab assets-subset image push-image clean sidecars nf-test-errors
 
 tools: venv .tools/nextflow $(PXF_JAR)   ## python env, nextflow and phenopacket-tools into .venv/ and .tools/
 
@@ -88,8 +88,14 @@ nf-full: .tools/nextflow venv vocab   ## pipeline on the fixtures with the full 
 	    --vocab vocab/tables --hp_json vocab/hp.json --strict_roundtrip false || exit 1; \
 	done
 
-image:   ## build rddc-registry-to-phenopacket:dev (not yet exercised)
-	docker build -t rddc-registry-to-phenopacket:dev .
+# The image name must equal process.container in nextflow.config (Cirro pulls that name).
+IMAGE ?= ghcr.io/sage-bionetworks/rddc-registry-to-phenopacket:0.2.0.dev0
+image:   ## build the image under the name nextflow.config uses
+	docker build --label org.opencontainers.image.source=https://github.com/Sage-Bionetworks/rddc-registry-to-phenopacket \
+	    --label org.opencontainers.image.licenses=Apache-2.0 -t $(IMAGE) .
+
+push-image: image   ## publish it (needs `docker login ghcr.io` with write:packages)
+	docker push $(IMAGE)
 
 clean:
 	rm -rf work results .nextflow .nextflow.log*

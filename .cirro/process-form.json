@@ -1,0 +1,21 @@
+{
+  "form": {
+    "title": "RDDC registry to Phenopackets",
+    "description": "A patient registry export (hierarchical JSON or wide CSV) in a deposited batch to GA4GH Phenopackets v2, with validation and subject reconciliation reports. The batch's sourceId must have a registered mapping (mappings/sources.yaml). Terms are resolved with the vocabulary subset in the pipeline's assets/.",
+    "type": "object",
+    "properties": {
+      "strict_validation": {
+        "type": "boolean",
+        "title": "Fail on validation errors",
+        "description": "Fail the run if any phenopacket has a validation error.",
+        "default": true
+      }
+    },
+    "required": []
+  },
+  "ui": {
+    "ui:order": [
+      "strict_validation"
+    ]
+  }
+}
