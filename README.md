@@ -267,3 +267,7 @@ Still to do:
 2. Obtain one blank data dictionary and one test export from each real registry on the
    TA1 sheet and replace the inferred source schemas.
 3. Run the Java validator once in an environment that allows it.
+
+## Funding
+
+This research was, in part, funded by the Advanced Research Projects Agency for Health (ARPA-H). The views and conclusions contained in this document are those of the authors and should not be interpreted as representing the official policies, either expressed or implied, of the United States Government.
